@@ -51,8 +51,8 @@ const KB = [
     answer: "I published \"Comprehensive Plagiarism Detection in Malayalam Texts\" at ICON 2024 (NLP Association of India) [research], based on the plagiarism checker I built at ICFOSS [experience].",
   },
   {
-    keys: ["education", "degree", "msc", "m.sc", "bsc", "b.sc", "university", "study", "studied", "college"],
-    answer: "M.Sc from the Central University of Rajasthan and B.Sc from the University of Kerala [education].",
+    keys: ["education", "degree", "msc", "m.sc", "bsc", "b.sc", "big data", "analytics", "computer science", "university", "study", "studied", "college"],
+    answer: "M.Sc in Big Data Analytics from the Central University of Rajasthan, and B.Sc in Computer Science from the University of Kerala [education].",
   },
   {
     keys: ["skills", "stack", "python", "fastapi", "django", "postgres", "postgresql", "pgvector", "aws", "docker", "vector", "pinecone", "faiss", "chroma", "openai", "groq", "ollama", "gemini", "llm", "llms", "tech", "toolkit"],
