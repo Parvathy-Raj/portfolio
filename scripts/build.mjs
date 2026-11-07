@@ -45,7 +45,11 @@ function font(name, weight) {
 const fonts = [font(sans, 500), font(sans, 700), font(sans, 800), font(mono, 500)];
 
 // ---------- 3. Lay out the card (1200 x 630) ----------
-const h = (type, style, ...children) => ({ type, props: { style, children: children.length === 1 ? children[0] : children } });
+// Satori requires every box to declare its layout, so each one defaults to flex.
+const h = (type, style, ...children) => ({
+  type,
+  props: { style: { display: "flex", ...style }, ...(children.length ? { children: children.length === 1 ? children[0] : children } : {}) },
+});
 const grad = `linear-gradient(135deg, ${t.a1} 0%, ${t.a2} 100%)`;
 
 const card = h("div", {
