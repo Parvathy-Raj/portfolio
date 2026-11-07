@@ -1,54 +1,54 @@
 /* =========================================================
    Parvathy Raj: portfolio
-   Earthy neutral theme. Light by default, dark via toggle.
+   Violet-to-magenta gradient theme. Light by default, dark via toggle.
    ========================================================= */
 :root,
 [data-theme="dark"] {
-  --bg: #14110f;
-  --bg-2: #1a1613;
-  --bg-3: #241f1a;
-  --card: rgba(34, 29, 24, 0.66);
-  --card-hover: rgba(44, 37, 30, 0.9);
-  --line: rgba(255, 240, 220, 0.07);
-  --line-strong: rgba(255, 240, 220, 0.14);
-  --text: #ece4d8;
-  --text-2: #b0a493;
-  --muted: #7a6f62;
-  --heading: #f6efe4;
-  --a1: #d9bc94;
-  --a2: #a8865f;
+  --bg: #0e0b16;
+  --bg-2: #141020;
+  --bg-3: #1e1830;
+  --card: rgba(26, 21, 40, 0.66);
+  --card-hover: rgba(36, 29, 56, 0.9);
+  --line: rgba(235, 225, 255, 0.07);
+  --line-strong: rgba(235, 225, 255, 0.14);
+  --text: #e9e5f2;
+  --text-2: #a8a0bd;
+  --muted: #6f6787;
+  --heading: #f6f3fc;
+  --a1: #8b5cf6;
+  --a2: #d946ef;
   --grad: linear-gradient(135deg, var(--a1) 0%, var(--a2) 100%);
-  --a1-soft: rgba(217, 188, 148, 0.09);
-  --a1-line: rgba(217, 188, 148, 0.26);
-  --glow: rgba(217, 188, 148, 0.18);
-  --pill-text: #e2cba9;
-  --nav-bg: rgba(20, 17, 15, 0.82);
+  --a1-soft: rgba(167, 139, 250, 0.1);
+  --a1-line: rgba(167, 139, 250, 0.28);
+  --glow: rgba(139, 92, 246, 0.3);
+  --pill-text: #c4b5fd;
+  --nav-bg: rgba(14, 11, 22, 0.82);
   --shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
-  --on-accent: #1a1410;
+  --on-accent: #ffffff;
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --bg: #f5f0e8;
-  --bg-2: #fbf8f3;
-  --bg-3: #ece4d6;
-  --card: rgba(251, 248, 243, 0.88);
-  --card-hover: #fffdf9;
-  --line: rgba(60, 45, 30, 0.1);
-  --line-strong: rgba(60, 45, 30, 0.18);
-  --text: #3b3128;
-  --text-2: #6b5d4f;
-  --muted: #9a8b7a;
-  --heading: #2a211a;
-  --a1: #7a5230;
-  --a2: #a8754b;
-  --a1-soft: rgba(122, 82, 48, 0.07);
-  --a1-line: rgba(122, 82, 48, 0.22);
-  --glow: rgba(122, 82, 48, 0.16);
-  --pill-text: #6e4a2c;
-  --nav-bg: rgba(245, 240, 232, 0.85);
-  --shadow: 0 16px 40px rgba(60, 40, 20, 0.08);
-  --on-accent: #fbf8f3;
+  --bg: #f8f6fd;
+  --bg-2: #ffffff;
+  --bg-3: #efeaf9;
+  --card: rgba(255, 255, 255, 0.88);
+  --card-hover: #ffffff;
+  --line: rgba(40, 20, 80, 0.08);
+  --line-strong: rgba(40, 20, 80, 0.16);
+  --text: #2a2438;
+  --text-2: #5d5670;
+  --muted: #908aa3;
+  --heading: #1a1428;
+  --a1: #6d28d9;
+  --a2: #c026d3;
+  --a1-soft: rgba(109, 40, 217, 0.07);
+  --a1-line: rgba(109, 40, 217, 0.2);
+  --glow: rgba(109, 40, 217, 0.2);
+  --pill-text: #5b21b6;
+  --nav-bg: rgba(248, 246, 253, 0.85);
+  --shadow: 0 16px 40px rgba(40, 20, 80, 0.08);
+  --on-accent: #ffffff;
   color-scheme: light;
 }
 
