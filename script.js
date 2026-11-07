@@ -349,7 +349,7 @@ const themeMeta = $('meta[name="theme-color"]');
 function applyTheme(t) {
   root.dataset.theme = t;
   themeBtn.setAttribute("aria-label", t === "dark" ? "Switch to light theme" : "Switch to dark theme");
-  themeMeta.setAttribute("content", t === "dark" ? "#14110F" : "#F5F0E8");
+  themeMeta.setAttribute("content", t === "dark" ? "#0E0B16" : "#F8F6FD");
 }
 applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
 themeBtn.addEventListener("click", () => {
@@ -368,7 +368,7 @@ themeBtn.addEventListener("click", () => {
   const hero = $(".hero");
   let w = 0, h = 0, dots = [], running = false, raf = 0;
 
-  const color = () => getComputedStyle(root).getPropertyValue("--a1").trim() || "#d9bc94";
+  const color = () => getComputedStyle(root).getPropertyValue("--a1").trim() || "#8b5cf6";
   const hexToRgb = (hex) => {
     const m = hex.replace("#", "");
     const n = parseInt(m.length === 3 ? m.split("").map((c) => c + c).join("") : m, 16);
