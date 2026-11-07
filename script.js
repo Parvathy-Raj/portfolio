@@ -197,14 +197,18 @@ window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
 
+// Highlight the menu link for the section in the middle of the screen.
 const navLinks = $$(".nav a");
-const sectionObs = new IntersectionObserver((entries) => {
-  for (const en of entries) {
-    if (!en.isIntersecting) continue;
-    navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === `#${en.target.id}`));
-  }
-}, { rootMargin: "-45% 0px -50% 0px" });
-["top", "about", "skills", "experience", "projects", "contact"].forEach((id) => sectionObs.observe(document.getElementById(id)));
+const navSections = ["top", "about", "skills", "experience", "projects", "education", "contact"].map((id) => document.getElementById(id));
+function updateActiveNav() {
+  const mid = innerHeight * 0.45;
+  let current = navSections[0];
+  for (const s of navSections) if (s.getBoundingClientRect().top <= mid) current = s;
+  if (innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = navSections[navSections.length - 1];
+  navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === `#${current.id}`));
+}
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+updateActiveNav();
 
 /* Mobile menu */
 const menuBtn = $("#menu-btn");
@@ -335,3 +339,84 @@ $("#msg-form").addEventListener("submit", (e) => {
 });
 
 $("#year").textContent = new Date().getFullYear();
+
+/* =========================================================
+   Theme toggle (dark by default, remembered per visitor)
+   ========================================================= */
+const root = document.documentElement;
+const themeBtn = $("#theme-btn");
+const themeMeta = $('meta[name="theme-color"]');
+function applyTheme(t) {
+  root.dataset.theme = t;
+  themeBtn.setAttribute("aria-label", t === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  themeMeta.setAttribute("content", t === "dark" ? "#07070C" : "#F7F6FB");
+}
+applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+themeBtn.addEventListener("click", () => {
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(next);
+  try { localStorage.setItem("theme", next); } catch (e) { /* storage blocked */ }
+});
+
+/* =========================================================
+   Hero particles: drifting dots joined by faint lines
+   ========================================================= */
+(() => {
+  const canvas = $("#particles");
+  if (!canvas || reduceMotion) return;
+  const ctx = canvas.getContext("2d");
+  const hero = $(".hero");
+  let w = 0, h = 0, dots = [], running = false, raf = 0;
+
+  const color = () => getComputedStyle(root).getPropertyValue("--a1").trim() || "#ff5c7c";
+  const hexToRgb = (hex) => {
+    const m = hex.replace("#", "");
+    const n = parseInt(m.length === 3 ? m.split("").map((c) => c + c).join("") : m, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  };
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = hero.clientWidth; h = hero.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.round(Math.min(70, (w * h) / 18000));
+    dots = Array.from({ length: count }, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 1.6 + 0.6,
+    }));
+  }
+
+  function frame() {
+    const [r, g, b] = hexToRgb(color());
+    ctx.clearRect(0, 0, w, h);
+    for (const d of dots) {
+      d.x += d.vx; d.y += d.vy;
+      if (d.x < 0 || d.x > w) d.vx *= -1;
+      if (d.y < 0 || d.y > h) d.vy *= -1;
+    }
+    for (let i = 0; i < dots.length; i++) {
+      const a = dots[i];
+      for (let j = i + 1; j < dots.length; j++) {
+        const c = dots[j];
+        const dist = Math.hypot(a.x - c.x, a.y - c.y);
+        if (dist < 130) {
+          ctx.strokeStyle = `rgba(${r},${g},${b},${0.14 * (1 - dist / 130)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(c.x, c.y); ctx.stroke();
+        }
+      }
+      ctx.fillStyle = `rgba(${r},${g},${b},0.55)`;
+      ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+
+  const start = () => { if (!running) { running = true; raf = requestAnimationFrame(frame); } };
+  const stop = () => { running = false; cancelAnimationFrame(raf); };
+  resize();
+  window.addEventListener("resize", resize);
+  // Only animate while the hero is on screen.
+  new IntersectionObserver(([en]) => (en.isIntersecting ? start() : stop())).observe(hero);
+})();

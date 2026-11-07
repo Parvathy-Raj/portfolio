@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,13 +8,16 @@
   <meta property="og:title" content="Parvathy Raj | AI Engineer">
   <meta property="og:description" content="Agentic AI, RAG systems and MCP servers, built with evaluation from day one. See the demos.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#FFFFFF">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230D9488'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3EPR%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#07070C">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FF5C7C'/%3E%3Cstop offset='1' stop-color='%23FFB547'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='800' font-size='26' fill='white' text-anchor='middle'%3EPR%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6">
-  <script>document.documentElement.classList.add("js");</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script>
+    document.documentElement.classList.add("js");
+    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 </head>
 <body>
   <!-- Icon sprite -->
@@ -29,7 +32,6 @@
       <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
       <symbol id="i-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
       <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
       <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
       <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
       <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
@@ -42,6 +44,9 @@
       <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
       <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
       <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
     </defs>
   </svg>
 
@@ -55,74 +60,89 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#contact" class="nav-cta">Let's talk</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg><use href="#i-menu"/></svg></button>
+      <button class="round-btn theme-btn" id="theme-btn" type="button" aria-label="Switch to light theme">
+        <svg class="sun"><use href="#i-sun"/></svg><svg class="moon"><use href="#i-moon"/></svg>
+      </button>
+      <button class="round-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg><use href="#i-menu"/></svg></button>
     </div>
   </header>
 
   <main id="main">
     <!-- ================= HERO ================= -->
     <section class="hero" id="top">
-      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <canvas id="particles"></canvas>
+        <span class="glow glow-1"></span>
+        <span class="glow glow-2"></span>
+      </div>
       <div class="wrap hero-grid">
         <div class="hero-text">
-          <p class="hello">Hi, I'm</p>
-          <h1>Parvathy Raj</h1>
-          <p class="rotator">AI Engineer building <span class="rot-word" id="rot-word">AI agents</span><span class="rot-caret" aria-hidden="true"></span></p>
+          <p class="hero-label">AI Engineer</p>
+          <h1>Hi, I'm <span class="grad">Parvathy Raj</span></h1>
+          <p class="hero-role">Building trustworthy AI systems</p>
+          <p class="rotator"><span class="prompt">&gt;</span> building <span class="rot-word" id="rot-word">AI agents</span><span class="rot-caret" aria-hidden="true"></span></p>
           <p class="lede">I design agentic AI systems, RAG applications and MCP servers, and I measure whether they work before I ship them.</p>
           <div class="hero-cta">
-            <a class="btn" href="#projects">See my projects <svg><use href="#i-arrow"/></svg></a>
+            <a class="btn" href="#projects">View my work <svg><use href="#i-arrow"/></svg></a>
             <a class="btn btn-ghost" href="#contact">Contact me</a>
           </div>
           <div class="socials">
-            <a href="https://www.linkedin.com/in/parvathy-raj-18190b256/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
             <a href="https://github.com/Parvathy-Raj" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+            <a href="https://www.linkedin.com/in/parvathy-raj-18190b256/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
             <a href="mailto:parvathyraj12@gmail.com?subject=Hello%20Parvathy" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
             <a href="https://wa.me/971504031831" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-chat"/></svg></a>
           </div>
         </div>
-
-        <!-- Chat widget -->
-        <div class="chat" role="region" aria-label="Ask about Parvathy">
-          <div class="chat-head">
-            <span class="avatar"><svg><use href="#i-bot"/></svg></span>
-            <div>
-              <p class="chat-title">Ask about my work</p>
-              <p class="chat-sub"><span class="live"></span>Answers cite this page</p>
-            </div>
-          </div>
-          <div class="chat-log" id="chat-log" aria-live="polite">
-            <div class="msg bot"><p>Hi! Ask me anything about my projects, skills or experience. Every answer links to its source on this page, and I'll say so if I don't know.</p></div>
-          </div>
-          <div class="chips" id="chips" aria-label="Example questions">
-            <button type="button" class="chip">Have you built an MCP server?</button>
-            <button type="button" class="chip">How do you test RAG quality?</button>
-            <button type="button" class="chip">Prompt injection experience?</button>
-            <button type="button" class="chip">What do you work on now?</button>
-          </div>
-          <form class="chat-form" id="ask-form" autocomplete="off">
-            <label class="sr" for="ask-input">Your question</label>
-            <input id="ask-input" type="text" placeholder="Type a question…" maxlength="160">
-            <button type="submit" aria-label="Send question"><svg><use href="#i-send"/></svg></button>
-          </form>
-        </div>
+        <div class="monogram" aria-hidden="true"><span>PR</span></div>
       </div>
     </section>
 
     <!-- ================= ABOUT ================= -->
     <section class="section" id="about" aria-labelledby="about-h">
-      <div class="wrap about-grid">
-        <div class="reveal">
+      <div class="wrap">
+        <div class="section-head reveal">
           <p class="kicker">About me</p>
-          <h2 id="about-h">I turn LLMs into systems you can trust</h2>
-          <p class="about-text">I'm an AI Engineer with hands-on experience building agentic AI systems, multi-agent workflows and retrieval-augmented generation (RAG) applications. I design MCP servers and tool-calling agents, build hybrid-search RAG pipelines over real documents, and back them with evaluation: golden datasets, LLM judges and CI quality gates.</p>
-          <p class="about-text">I work across the stack, from Python and FastAPI backends to PostgreSQL with pgvector, Docker and AWS. I've worked in Dubai and India, and I've published NLP research at ICON 2024.</p>
-          <div class="about-meta">
-            <div><svg><use href="#i-briefcase"/></svg><span><b>Now</b> AI Engineer, Kinetics Group</span></div>
-            <div><svg><use href="#i-grad"/></svg><span><b>Education</b> M.Sc Big Data Analytics, Central University of Rajasthan</span></div>
+          <h2 id="about-h">Turning LLMs into <span class="grad">systems you can trust</span></h2>
+          <span class="bar"></span>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>I'm an AI Engineer with hands-on experience building agentic AI systems, multi-agent workflows and retrieval-augmented generation (RAG) applications. I design MCP servers and tool-calling agents, build hybrid-search RAG pipelines over real documents, and back them with evaluation: golden datasets, LLM judges and CI quality gates.</p>
+            <p>I work across the stack, from Python and FastAPI backends to PostgreSQL with pgvector, Docker and AWS. I've worked in Dubai and India, and I've published NLP research at ICON 2024.</p>
+            <div class="about-meta">
+              <div><span class="ico"><svg><use href="#i-briefcase"/></svg></span><span><small>Now</small>AI Engineer, Kinetics Group</span></div>
+              <div><span class="ico"><svg><use href="#i-grad"/></svg></span><span><small>Education</small>M.Sc Big Data Analytics</span></div>
+            </div>
+          </div>
+
+          <!-- Chat widget -->
+          <div class="chat reveal" role="region" aria-label="Ask about Parvathy">
+            <div class="chat-head">
+              <span class="avatar"><svg><use href="#i-bot"/></svg></span>
+              <div>
+                <p class="chat-title">Ask about my work</p>
+                <p class="chat-sub"><span class="live"></span>Answers cite this page</p>
+              </div>
+            </div>
+            <div class="chat-log" id="chat-log" aria-live="polite">
+              <div class="msg bot"><p>Hi! Ask me anything about my projects, skills or experience. Every answer links to its source on this page, and I'll say so if I don't know.</p></div>
+            </div>
+            <div class="chips" id="chips" aria-label="Example questions">
+              <button type="button" class="chip">Have you built an MCP server?</button>
+              <button type="button" class="chip">How do you test RAG quality?</button>
+              <button type="button" class="chip">Prompt injection experience?</button>
+              <button type="button" class="chip">What do you work on now?</button>
+            </div>
+            <form class="chat-form" id="ask-form" autocomplete="off">
+              <label class="sr" for="ask-input">Your question</label>
+              <input id="ask-input" type="text" placeholder="Type a question…" maxlength="160">
+              <button type="submit" aria-label="Send question"><svg><use href="#i-send"/></svg></button>
+            </form>
           </div>
         </div>
+
         <div class="services">
           <article class="service reveal">
             <span class="ico"><svg><use href="#i-bot"/></svg></span>
@@ -149,29 +169,38 @@
     </section>
 
     <!-- ================= SKILLS ================= -->
-    <section class="section tint" id="skills" aria-labelledby="skills-h">
+    <section class="section" id="skills" aria-labelledby="skills-h">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Skills</p>
-          <h2 id="skills-h">My toolkit</h2>
+          <p class="kicker">Technical toolkit</p>
+          <h2 id="skills-h">Skills &amp; <span class="grad">Expertise</span></h2>
+          <span class="bar"></span>
         </div>
-        <div class="tabs reveal" data-tabs>
-          <div class="tab-list" role="tablist" aria-label="Skill areas">
-            <button role="tab" aria-selected="true" aria-controls="sk-3" id="sk-3-t"><svg><use href="#i-layers"/></svg>Frameworks and LLMs</button>
-            <button role="tab" aria-selected="false" aria-controls="sk-4" id="sk-4-t"><svg><use href="#i-code"/></svg>Backend</button>
-            <button role="tab" aria-selected="false" aria-controls="sk-2" id="sk-2-t"><svg><use href="#i-search"/></svg>GenAI and RAG</button>
-            <button role="tab" aria-selected="false" aria-controls="sk-5" id="sk-5-t"><svg><use href="#i-db"/></svg>Data and cloud</button>
-            <button role="tab" aria-selected="false" aria-controls="sk-1" id="sk-1-t"><svg><use href="#i-bot"/></svg>Agentic AI</button>
-            <button role="tab" aria-selected="false" aria-controls="sk-6" id="sk-6-t"><svg><use href="#i-shield"/></svg>AI security</button>
-          </div>
-          <div class="tab-panels">
-            <div role="tabpanel" id="sk-1" aria-labelledby="sk-1-t" hidden><ul class="skill-grid"><li>AI agents</li><li>Multi-agent systems</li><li>Model Context Protocol (MCP)</li><li>Tool and function calling</li><li>Agent memory</li><li>Human-in-the-loop</li><li>Structured outputs</li></ul></div>
-            <div role="tabpanel" id="sk-2" aria-labelledby="sk-2-t" hidden><ul class="skill-grid"><li>Agentic RAG</li><li>Hybrid search</li><li>Embeddings</li><li>Rerankers</li><li>Document intelligence</li><li>OCR</li><li>Prompt engineering</li><li>Context engineering</li><li>RAG evaluation</li></ul></div>
-            <div role="tabpanel" id="sk-3" aria-labelledby="sk-3-t"><ul class="skill-grid"><li>LangGraph</li><li>LangChain</li><li>LlamaIndex</li><li>Hugging Face</li><li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Groq</li><li>Ollama</li></ul></div>
-            <div role="tabpanel" id="sk-4" aria-labelledby="sk-4-t" hidden><ul class="skill-grid"><li>Python</li><li>FastAPI</li><li>REST APIs</li><li>Django REST Framework</li><li>n8n</li><li>NetSuite integration</li></ul></div>
-            <div role="tabpanel" id="sk-5" aria-labelledby="sk-5-t" hidden><ul class="skill-grid"><li>PostgreSQL</li><li>pgvector</li><li>Supabase</li><li>FAISS</li><li>ChromaDB</li><li>Pinecone</li><li>AWS</li><li>Docker</li><li>CI/CD</li><li>Linux</li></ul></div>
-            <div role="tabpanel" id="sk-6" aria-labelledby="sk-6-t" hidden><ul class="skill-grid"><li>Prompt-injection defenses</li><li>Input filtering</li><li>Output filtering</li><li>LLM guard models</li><li>Attack benchmarking</li></ul></div>
-          </div>
+        <div class="skill-cats">
+          <article class="skill-cat reveal">
+            <h3><svg><use href="#i-layers"/></svg>Frameworks and LLMs</h3>
+            <ul class="pills"><li>LangGraph</li><li>LangChain</li><li>LlamaIndex</li><li>Hugging Face</li><li>OpenAI</li><li>Claude</li><li>Gemini</li><li>Groq</li><li>Ollama</li></ul>
+          </article>
+          <article class="skill-cat reveal">
+            <h3><svg><use href="#i-code"/></svg>Backend</h3>
+            <ul class="pills"><li>Python</li><li>FastAPI</li><li>REST APIs</li><li>Django REST Framework</li><li>n8n</li><li>NetSuite integration</li></ul>
+          </article>
+          <article class="skill-cat reveal">
+            <h3><svg><use href="#i-search"/></svg>GenAI and RAG</h3>
+            <ul class="pills"><li>Agentic RAG</li><li>Hybrid search</li><li>Embeddings</li><li>Rerankers</li><li>Document intelligence</li><li>OCR</li><li>Prompt engineering</li><li>Context engineering</li><li>RAG evaluation</li></ul>
+          </article>
+          <article class="skill-cat reveal">
+            <h3><svg><use href="#i-db"/></svg>Data and cloud</h3>
+            <ul class="pills"><li>PostgreSQL</li><li>pgvector</li><li>Supabase</li><li>FAISS</li><li>ChromaDB</li><li>Pinecone</li><li>AWS</li><li>Docker</li><li>CI/CD</li><li>Linux</li></ul>
+          </article>
+          <article class="skill-cat reveal">
+            <h3><svg><use href="#i-bot"/></svg>Agentic AI</h3>
+            <ul class="pills"><li>AI agents</li><li>Multi-agent systems</li><li>Model Context Protocol (MCP)</li><li>Tool and function calling</li><li>Agent memory</li><li>Human-in-the-loop</li><li>Structured outputs</li></ul>
+          </article>
+          <article class="skill-cat reveal">
+            <h3><svg><use href="#i-shield"/></svg>AI security</h3>
+            <ul class="pills"><li>Prompt-injection defenses</li><li>Input filtering</li><li>Output filtering</li><li>LLM guard models</li><li>Attack benchmarking</li></ul>
+          </article>
         </div>
       </div>
     </section>
@@ -180,111 +209,110 @@
     <section class="section" id="experience" aria-labelledby="exp-h">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">Experience</p>
-          <h2 id="exp-h">Where I've worked</h2>
+          <p class="kicker">Career</p>
+          <h2 id="exp-h">Professional <span class="grad">Experience</span></h2>
+          <span class="bar"></span>
         </div>
-        <div class="tabs exp reveal" data-tabs>
-          <div class="tab-list vertical" role="tablist" aria-label="Companies">
-            <button role="tab" aria-selected="true" aria-controls="ex-1" id="ex-1-t"><b>Kinetics Group</b><span>May 2026 – present</span></button>
-            <button role="tab" aria-selected="false" aria-controls="ex-2" id="ex-2-t"><b>Renie, Dubai</b><span>From Jan 2025</span></button>
-            <button role="tab" aria-selected="false" aria-controls="ex-3" id="ex-3-t"><b>ICFOSS, India</b><span>From Jun 2023</span></button>
-            <button role="tab" aria-selected="false" aria-controls="ex-4" id="ex-4-t"><b>KPMG</b><span>From Apr 2023</span></button>
-          </div>
-          <div class="tab-panels">
-            <div role="tabpanel" id="ex-1" aria-labelledby="ex-1-t" class="job">
-              <h3>AI Engineer <span>at Kinetics Group</span></h3>
-              <p class="when">May 2026 – present</p>
-              <ul><li>Building agentic AI systems and multi-agent workflows.</li><li>Delivering LLM-powered automation for business processes.</li></ul>
-              <ul class="tags"><li>Agentic AI</li><li>Multi-agent systems</li><li>LLM automation</li></ul>
+        <ol class="timeline">
+          <li class="job reveal">
+            <div class="job-head">
+              <div><h3>AI Engineer</h3><p class="company">Kinetics Group</p></div>
+              <p class="when">May 2026 – Present</p>
             </div>
-            <div role="tabpanel" id="ex-2" aria-labelledby="ex-2-t" class="job" hidden>
-              <h3>AI Engineer <span>at Renie, Dubai</span></h3>
-              <p class="when">From Jan 2025</p>
-              <ul><li>Built an AI analytics agent that connects LLaMA 3 8B to PostgreSQL.</li><li>The team can ask rental and financial questions in plain language and get answers from live data.</li></ul>
-              <ul class="tags"><li>LLaMA 3</li><li>PostgreSQL</li><li>Text-to-SQL agent</li></ul>
+            <ul class="points"><li>Building agentic AI systems and multi-agent workflows.</li><li>Delivering LLM-powered automation for business processes.</li></ul>
+            <ul class="pills"><li>Agentic AI</li><li>Multi-agent systems</li><li>LLM automation</li></ul>
+          </li>
+          <li class="job reveal">
+            <div class="job-head">
+              <div><h3>AI Engineer</h3><p class="company">Renie</p></div>
+              <p class="when">From Jan 2025 · Dubai</p>
             </div>
-            <div role="tabpanel" id="ex-3" aria-labelledby="ex-3-t" class="job" hidden>
-              <h3>AI/ML Engineer <span>at ICFOSS, India</span></h3>
-              <p class="when">From Jun 2023</p>
-              <ul><li>Built a plagiarism checker for Malayalam text end to end, from NLP pipeline to web app.</li><li>Deployed on Linux with NGINX and Gunicorn.</li><li>The work led to a paper at ICON 2024 (NLP Association of India).</li></ul>
-              <ul class="tags"><li>NLTK</li><li>Machine learning</li><li>Django</li><li>React</li><li>NGINX</li></ul>
+            <ul class="points"><li>Built an AI analytics agent that connects LLaMA 3 8B to PostgreSQL.</li><li>The team can ask rental and financial questions in plain language and get answers from live data.</li></ul>
+            <ul class="pills"><li>LLaMA 3</li><li>PostgreSQL</li><li>Text-to-SQL agent</li></ul>
+          </li>
+          <li class="job reveal">
+            <div class="job-head">
+              <div><h3>AI/ML Engineer</h3><p class="company">ICFOSS</p></div>
+              <p class="when">From Jun 2023 · India</p>
             </div>
-            <div role="tabpanel" id="ex-4" aria-labelledby="ex-4-t" class="job" hidden>
-              <h3>Data Analytics Consulting Intern <span>at KPMG</span></h3>
+            <ul class="points"><li>Built a plagiarism checker for Malayalam text end to end, from NLP pipeline to web app.</li><li>Deployed on Linux with NGINX and Gunicorn.</li><li>The work led to a paper at ICON 2024 (NLP Association of India).</li></ul>
+            <ul class="pills"><li>NLTK</li><li>Machine learning</li><li>Django</li><li>React</li><li>NGINX</li></ul>
+          </li>
+          <li class="job reveal">
+            <div class="job-head">
+              <div><h3>Data Analytics Consulting Intern</h3><p class="company">KPMG</p></div>
               <p class="when">From Apr 2023</p>
-              <ul><li>Data analytics consulting internship.</li></ul>
-              <ul class="tags"><li>Data analytics</li><li>Consulting</li></ul>
             </div>
-          </div>
-        </div>
-
-        <div class="edu reveal" id="education">
-          <article class="edu-card"><span class="ico"><svg><use href="#i-grad"/></svg></span><div><h3>M.Sc Big Data Analytics</h3><p>Central University of Rajasthan</p></div></article>
-          <article class="edu-card"><span class="ico"><svg><use href="#i-grad"/></svg></span><div><h3>B.Sc Computer Science</h3><p>University of Kerala</p></div></article>
-          <article class="edu-card" id="research"><span class="ico"><svg><use href="#i-file"/></svg></span><div><h3>Comprehensive Plagiarism Detection in Malayalam Texts</h3><p>Published at ICON 2024, NLP Association of India</p></div></article>
-        </div>
+            <ul class="points"><li>Data analytics consulting internship.</li></ul>
+            <ul class="pills"><li>Data analytics</li><li>Consulting</li></ul>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- ================= PROJECTS ================= -->
-    <section class="section tint" id="projects" aria-labelledby="work-h">
+    <section class="section" id="projects" aria-labelledby="work-h">
       <div class="wrap" id="work">
         <div class="section-head reveal">
-          <p class="kicker">Projects</p>
-          <h2 id="work-h">Featured work</h2>
-          <p class="section-intro">Each project answers one question: how do you know the AI is right, and how do you stop it from being misused? Hover or tap to preview the demo.</p>
+          <p class="kicker">Featured work</p>
+          <h2 id="work-h">Selected <span class="grad">Projects</span></h2>
+          <span class="bar"></span>
+          <p class="section-intro">Each project answers one question: how do you know the AI is right, and how do you stop it from being misused? Hover a demo to preview it, or click to watch.</p>
         </div>
 
         <div class="cards">
           <article class="card reveal" id="docs-brain" data-project="docs-brain">
+            <div class="card-body">
+              <p class="card-tag"><span class="dot"></span>MCP server</p>
+              <h3>Docs Brain MCP Server</h3>
+              <p>Lets Claude Desktop, Cursor or any MCP client search the FastAPI docs and cite the exact section. Runs on a laptop CPU with no API keys.</p>
+              <ul class="checks"><li>Hybrid search with reciprocal rank fusion</li><li>Typed tools with JSON-schema output</li><li>Prompt-injection guard on retrieved docs</li></ul>
+              <dl class="mini-metrics"><div><dt>Recall@5</dt><dd>98%</dd></div><div><dt>MRR</dt><dd>0.86</dd></div><div><dt>Latency</dt><dd>31 ms</dd></div></dl>
+              <div class="card-actions">
+                <button class="btn btn-small open-modal" type="button"><svg><use href="#i-play"/></svg>Watch demo</button>
+                <a class="btn btn-small btn-ghost" href="https://github.com/Parvathy-Raj/docs-brain-mcp-server" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>Code</a>
+              </div>
+            </div>
             <button class="thumb" type="button" aria-label="Open Docs Brain demo and details">
               <video src="media/docs-brain.mp4" poster="media/docs-brain.jpg" muted loop playsinline preload="metadata" tabindex="-1"></video>
               <span class="play"><svg><use href="#i-play"/></svg></span>
             </button>
-            <div class="card-body">
-              <p class="card-tag"><svg><use href="#i-plug"/></svg>MCP server</p>
-              <h3>Docs Brain MCP Server</h3>
-              <p>Lets Claude Desktop, Cursor or any MCP client search the FastAPI docs and cite the exact section.</p>
-              <dl class="mini-metrics"><div><dt>Recall@5</dt><dd>98%</dd></div><div><dt>MRR</dt><dd>0.86</dd></div><div><dt>Latency</dt><dd>31 ms</dd></div></dl>
-              <div class="card-actions">
-                <button class="btn btn-small open-modal" type="button">Watch demo</button>
-                <a class="icon-link" href="https://github.com/Parvathy-Raj/docs-brain-mcp-server" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>Code</a>
-              </div>
-            </div>
           </article>
 
           <article class="card reveal" id="uae-rag" data-project="uae-rag">
+            <div class="card-body">
+              <p class="card-tag"><span class="dot"></span>RAG and evaluation</p>
+              <h3>UAE Regulatory RAG</h3>
+              <p>Cited answers on UAE VAT and corporate tax from seven official guides. It refuses questions the guides don't cover instead of guessing.</p>
+              <ul class="checks"><li>Golden set and LLM judge checked against human labels</li><li>CI gate blocks changes that lower quality</li><li>Dense, hybrid and reranked retrieval compared</li></ul>
+              <dl class="mini-metrics"><div><dt>FTA guides</dt><dd>7</dd></div><div><dt>Retrievers</dt><dd>3</dd></div><div><dt>Run cost</dt><dd>$0</dd></div></dl>
+              <div class="card-actions">
+                <button class="btn btn-small open-modal" type="button"><svg><use href="#i-play"/></svg>Watch demo</button>
+                <a class="btn btn-small btn-ghost" href="https://github.com/Parvathy-Raj/uae-regulatory-rag" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>Code</a>
+              </div>
+            </div>
             <button class="thumb" type="button" aria-label="Open UAE Regulatory RAG demo and details">
               <video src="media/uae-rag.mp4" poster="media/uae-rag.jpg" muted loop playsinline preload="metadata" tabindex="-1"></video>
               <span class="play"><svg><use href="#i-play"/></svg></span>
             </button>
-            <div class="card-body">
-              <p class="card-tag"><svg><use href="#i-search"/></svg>RAG and evaluation</p>
-              <h3>UAE Regulatory RAG</h3>
-              <p>Cited answers on UAE VAT and corporate tax, with a CI gate that blocks quality drops.</p>
-              <dl class="mini-metrics"><div><dt>FTA guides</dt><dd>7</dd></div><div><dt>Retrievers</dt><dd>3</dd></div><div><dt>Run cost</dt><dd>$0</dd></div></dl>
-              <div class="card-actions">
-                <button class="btn btn-small open-modal" type="button">Watch demo</button>
-                <a class="icon-link" href="https://github.com/Parvathy-Raj/uae-regulatory-rag" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>Code</a>
-              </div>
-            </div>
           </article>
 
           <article class="card reveal" id="prompt-heist" data-project="prompt-heist">
+            <div class="card-body">
+              <p class="card-tag"><span class="dot"></span>AI security</p>
+              <h3>Prompt Heist</h3>
+              <p>A prompt-injection game with five stacked defenses, backed by a benchmark that measures how often each defense breaks.</p>
+              <ul class="checks"><li>Hardened prompt, input and output filters, AI guard</li><li>Leak detector for disguised secrets</li><li>Attack rates with 95% confidence intervals</li></ul>
+              <dl class="mini-metrics"><div><dt>Levels</dt><dd>5</dd></div><div><dt>Tests</dt><dd>227</dd></div><div><dt>Leak checks</dt><dd>10+</dd></div></dl>
+              <div class="card-actions">
+                <button class="btn btn-small open-modal" type="button"><svg><use href="#i-play"/></svg>Watch demo</button>
+                <a class="btn btn-small btn-ghost" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>Code</a>
+              </div>
+            </div>
             <button class="thumb" type="button" aria-label="Open Prompt Heist demo and details">
               <video src="media/prompt-heist.mp4" poster="media/prompt-heist.jpg" muted loop playsinline preload="metadata" tabindex="-1"></video>
               <span class="play"><svg><use href="#i-play"/></svg></span>
             </button>
-            <div class="card-body">
-              <p class="card-tag"><svg><use href="#i-shield"/></svg>AI security</p>
-              <h3>Prompt Heist</h3>
-              <p>A prompt-injection game with five stacked defenses and a benchmark that measures each one.</p>
-              <dl class="mini-metrics"><div><dt>Levels</dt><dd>5</dd></div><div><dt>Tests</dt><dd>227</dd></div><div><dt>Leak checks</dt><dd>10+</dd></div></dl>
-              <div class="card-actions">
-                <button class="btn btn-small open-modal" type="button">Watch demo</button>
-                <a class="icon-link" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>Code</a>
-              </div>
-            </div>
           </article>
         </div>
 
@@ -298,31 +326,52 @@
       </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section class="section contact" id="contact" aria-labelledby="contact-h">
-      <div class="wrap contact-grid">
-        <div class="reveal">
-          <p class="kicker light">Contact</p>
-          <h2 id="contact-h">Let's build something together</h2>
-          <p class="contact-intro">I reply fastest on email or WhatsApp, and I'm happy to walk you through any of these projects live.</p>
-          <ul class="contact-list">
-            <li><a href="mailto:parvathyraj12@gmail.com?subject=Hello%20Parvathy"><span class="ico"><svg><use href="#i-mail"/></svg></span><span><small>Email</small>parvathyraj12@gmail.com</span></a></li>
-            <li><a href="https://wa.me/971504031831" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-chat"/></svg></span><span><small>UAE · WhatsApp or call</small>+971 50 403 1831</span></a><a class="call" href="tel:+971504031831" aria-label="Call UAE number"><svg><use href="#i-phone"/></svg></a></li>
-            <li><a href="https://wa.me/918078276949" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-chat"/></svg></span><span><small>India · WhatsApp or call</small>+91 80782 76949</span></a><a class="call" href="tel:+918078276949" aria-label="Call India number"><svg><use href="#i-phone"/></svg></a></li>
-            <li><a href="https://www.linkedin.com/in/parvathy-raj-18190b256/" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-linkedin"/></svg></span><span><small>LinkedIn</small>in/parvathy-raj</span></a></li>
-            <li><a href="https://github.com/Parvathy-Raj" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-github"/></svg></span><span><small>GitHub</small>Parvathy-Raj</span></a></li>
-          </ul>
+    <!-- ================= EDUCATION ================= -->
+    <section class="section" id="education" aria-labelledby="edu-h">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Academics</p>
+          <h2 id="edu-h">Education &amp; <span class="grad">Research</span></h2>
+          <span class="bar"></span>
         </div>
+        <div class="edu">
+          <article class="edu-card reveal"><span class="ico"><svg><use href="#i-grad"/></svg></span><p class="edu-type">Master's degree</p><h3>M.Sc Big Data Analytics</h3><p>Central University of Rajasthan</p></article>
+          <article class="edu-card reveal"><span class="ico"><svg><use href="#i-grad"/></svg></span><p class="edu-type">Bachelor's degree</p><h3>B.Sc Computer Science</h3><p>University of Kerala</p></article>
+          <article class="edu-card reveal" id="research"><span class="ico"><svg><use href="#i-file"/></svg></span><p class="edu-type">Publication · ICON 2024</p><h3>Comprehensive Plagiarism Detection in Malayalam Texts</h3><p>NLP Association of India</p></article>
+        </div>
+      </div>
+    </section>
 
-        <form class="msg-form reveal" id="msg-form" novalidate>
-          <h3>Send me a message</h3>
-          <label>Your name<input name="name" type="text" required autocomplete="name"></label>
-          <label><span>Company <span class="opt">(optional)</span></span><input name="company" type="text" autocomplete="organization"></label>
-          <label>Message<textarea name="message" rows="5" required></textarea></label>
-          <p class="form-error" id="form-error" role="alert" hidden>Add your name and a message, then send again.</p>
-          <button class="btn" type="submit"><svg><use href="#i-send"/></svg>Send message</button>
-          <p class="form-note">This opens your email app with the message ready to send.</p>
-        </form>
+    <!-- ================= CONTACT ================= -->
+    <section class="section" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Get in touch</p>
+          <h2 id="contact-h">Let's <span class="grad">Connect</span></h2>
+          <span class="bar"></span>
+        </div>
+        <div class="contact-grid">
+          <div class="reveal">
+            <h3 class="contact-title">Let's build something together</h3>
+            <p class="contact-intro">I reply fastest on email or WhatsApp, and I'm happy to walk you through any of these projects live.</p>
+            <ul class="contact-list">
+              <li><a href="mailto:parvathyraj12@gmail.com?subject=Hello%20Parvathy"><span class="ico"><svg><use href="#i-mail"/></svg></span><span><b>parvathyraj12@gmail.com</b><small>Email</small></span></a></li>
+              <li><a href="https://wa.me/971504031831" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-chat"/></svg></span><span><b>+971 50 403 1831</b><small>UAE · WhatsApp or call</small></span></a><a class="call" href="tel:+971504031831" aria-label="Call UAE number"><svg><use href="#i-phone"/></svg></a></li>
+              <li><a href="https://wa.me/918078276949" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-chat"/></svg></span><span><b>+91 80782 76949</b><small>India · WhatsApp or call</small></span></a><a class="call" href="tel:+918078276949" aria-label="Call India number"><svg><use href="#i-phone"/></svg></a></li>
+              <li><a href="https://www.linkedin.com/in/parvathy-raj-18190b256/" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-linkedin"/></svg></span><span><b>LinkedIn profile</b><small>Connect with me</small></span></a></li>
+              <li><a href="https://github.com/Parvathy-Raj" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-github"/></svg></span><span><b>GitHub</b><small>View my code</small></span></a></li>
+            </ul>
+          </div>
+
+          <form class="msg-form reveal" id="msg-form" novalidate>
+            <label>Name<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label>
+            <label><span>Company <span class="opt">(optional)</span></span><input name="company" type="text" autocomplete="organization" placeholder="Where you work"></label>
+            <label>Message<textarea name="message" rows="5" required placeholder="Tell me about your project or role…"></textarea></label>
+            <p class="form-error" id="form-error" role="alert" hidden>Add your name and a message, then send again.</p>
+            <button class="btn btn-block" type="submit">Send message <svg><use href="#i-arrow"/></svg></button>
+            <p class="form-note">This opens your email app with the message ready to send.</p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -331,8 +380,8 @@
     <div class="wrap footer-inner">
       <a class="brand" href="#top"><span class="mark" aria-hidden="true">PR</span>Parvathy Raj</a>
       <div class="socials small">
-        <a href="https://www.linkedin.com/in/parvathy-raj-18190b256/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
         <a href="https://github.com/Parvathy-Raj" target="_blank" rel="noopener" aria-label="GitHub"><svg><use href="#i-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/parvathy-raj-18190b256/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
         <a href="mailto:parvathyraj12@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
       </div>
       <p>© <span id="year">2026</span> Parvathy Raj</p>
@@ -350,11 +399,11 @@
 
   <!-- Project details shown in the modal -->
   <template id="tpl-docs-brain">
-    <p class="card-tag"><svg><use href="#i-plug"/></svg>MCP server</p>
+    <p class="card-tag"><span class="dot"></span>MCP server</p>
     <h3 id="modal-title">Docs Brain MCP Server</h3>
     <p class="cap">Recording: paraphrased questions find the right FastAPI docs sections with citation links, and a path-traversal attempt is refused.</p>
     <p>An MCP server that lets Claude Desktop, Cursor or any MCP client search the FastAPI documentation and cite the exact section. It runs on a laptop CPU with no API keys, and the client's own model writes the answer.</p>
-    <ul class="points">
+    <ul class="checks">
       <li>Hybrid search: semantic and keyword results merged with reciprocal rank fusion</li>
       <li>Typed tools (<code>search_docs</code>, <code>get_page</code>, <code>list_sections</code>) with JSON-schema output</li>
       <li>A prompt-injection guard filters the docs before the model reads them</li>
@@ -362,40 +411,40 @@
     </ul>
     <dl class="mini-metrics"><div><dt>Recall@5</dt><dd>98%</dd></div><div><dt>MRR</dt><dd>0.86</dd></div><div><dt>Median latency</dt><dd>31 ms</dd></div></dl>
     <p class="cap">Measured on 40 hand-written developer questions, every label checked by hand.</p>
-    <ul class="tags"><li>Python</li><li>MCP</li><li>bge-small</li><li>BM25</li><li>Cross-encoders</li></ul>
+    <ul class="pills"><li>Python</li><li>MCP</li><li>bge-small</li><li>BM25</li><li>Cross-encoders</li></ul>
     <a class="btn" href="https://github.com/Parvathy-Raj/docs-brain-mcp-server" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
   <template id="tpl-uae-rag">
-    <p class="card-tag"><svg><use href="#i-search"/></svg>RAG and evaluation</p>
+    <p class="card-tag"><span class="dot"></span>RAG and evaluation</p>
     <h3 id="modal-title">UAE Regulatory RAG</h3>
     <p class="cap">Recording: two answers that cite the page they came from, then a refusal for a question the tax guides don't cover.</p>
     <p>A question-answering system over seven public UAE Federal Tax Authority guides on VAT and corporate tax. Every answer cites its source page, and it refuses questions the guides don't answer instead of guessing.</p>
-    <ul class="points">
+    <ul class="checks">
       <li>Evaluation first: a human-verified golden question set and an LLM judge checked against human labels (Cohen's κ)</li>
       <li>A CI gate runs the evaluation on every pull request and blocks changes that make retrieval or faithfulness worse</li>
       <li>Three retrievers compared: dense, hybrid (BM25 and dense) and hybrid with a reranker</li>
       <li>Runs free: local embeddings and vector store, Groq free tier or fully offline with Ollama</li>
     </ul>
     <dl class="mini-metrics"><div><dt>Source guides</dt><dd>7</dd></div><div><dt>Retrievers compared</dt><dd>3</dd></div><div><dt>Running cost</dt><dd>$0</dd></div></dl>
-    <ul class="tags"><li>Python</li><li>Chroma</li><li>bge + reranker</li><li>Groq / Ollama</li><li>MLflow</li><li>Docker</li><li>GitHub Actions</li></ul>
+    <ul class="pills"><li>Python</li><li>Chroma</li><li>bge + reranker</li><li>Groq / Ollama</li><li>MLflow</li><li>Docker</li><li>GitHub Actions</li></ul>
     <a class="btn" href="https://github.com/Parvathy-Raj/uae-regulatory-rag" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
   <template id="tpl-prompt-heist">
-    <p class="card-tag"><svg><use href="#i-shield"/></svg>AI security</p>
+    <p class="card-tag"><span class="dot"></span>AI security</p>
     <h3 id="modal-title">Prompt Heist</h3>
     <p class="cap">Recording: all five levels, shown at 2× speed.</p>
     <p>Talk an AI guard into leaking its secret password, then try again against five layers of defense. Behind the game is a reproducible attack benchmark that measures how often each defense breaks and how often it blocks harmless messages.</p>
-    <ul class="points">
+    <ul class="checks">
       <li>Defenses stack up: hardened prompt, input filter, output filter, then a second AI guard</li>
       <li>The leak detector catches passwords hidden as reversed text, base64, rot13, NATO alphabet, acrostics and more</li>
       <li>Attack success and false-positive rates reported with 95% Wilson confidence intervals</li>
       <li>A "Why was I blocked?" panel shows which layer fired and why</li>
     </ul>
     <dl class="mini-metrics"><div><dt>Defense levels</dt><dd>5</dd></div><div><dt>Automated tests</dt><dd>227</dd></div><div><dt>Offline mock mode</dt><dd>Yes</dd></div></dl>
-    <ul class="tags"><li>Python</li><li>Gradio</li><li>Groq</li><li>sentence-transformers</li><li>rapidfuzz</li><li>SQLite</li><li>Docker</li></ul>
+    <ul class="pills"><li>Python</li><li>Gradio</li><li>Groq</li><li>sentence-transformers</li><li>rapidfuzz</li><li>SQLite</li><li>Docker</li></ul>
     <a class="btn" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
