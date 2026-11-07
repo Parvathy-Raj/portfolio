@@ -207,6 +207,8 @@ svg { width: 1em; height: 1em; flex: none; }
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
 .about-text p { font-size: 17px; margin-bottom: 20px; }
+.about-text p.summary-label { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--a1); margin-bottom: 14px; }
+.about-text strong { color: var(--heading); font-weight: 700; }
 .about-meta { display: grid; gap: 12px; margin-top: 28px; }
 .about-meta > div { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: var(--r-md); }
 .about-meta small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
