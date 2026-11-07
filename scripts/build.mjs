@@ -26,10 +26,10 @@ function readVars(block) {
   for (const [, name, value] of block.matchAll(/--([\w-]+):\s*([^;]+);/g)) vars[name] = value.trim();
   return vars;
 }
-const lightBlock = css.match(/\[data-theme="light"\]\s*\{([^}]*)\}/);
+const themeBlock = css.match(/\[data-theme="dark"\]\s*\{([^}]*)\}/);
 const rootBlock = css.match(/:root\s*\{([^}]*)\}/);
-if (!lightBlock || !rootBlock) throw new Error("Could not find theme tokens in styles.css");
-const t = { ...readVars(rootBlock[1]), ...readVars(lightBlock[1]) }; // light is the default theme
+if (!themeBlock || !rootBlock) throw new Error("Could not find theme tokens in styles.css");
+const t = { ...readVars(rootBlock[1]), ...readVars(themeBlock[1]) }; // dark is the default theme
 
 // First family in a font stack, e.g. '"Inter", system-ui' -> "Inter"
 const family = (stack) => stack.split(",")[0].replace(/["']/g, "").trim();

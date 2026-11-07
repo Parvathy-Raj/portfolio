@@ -41,5 +41,5 @@ Every time you push a change to GitHub, Vercel redeploys automatically.
 
 `og-image.png` (the card shown when the link is shared on WhatsApp, LinkedIn, Slack, X) is generated on
 every Vercel build by `scripts/build.mjs`, using Satori and resvg (both free and open source).
-It reads the light-theme colours and the fonts from `styles.css`, so changing the theme updates the image too.
+It reads the dark-theme colours (the default theme) and the fonts from `styles.css`, so changing the theme updates the image too.
 To build locally (needs Node.js 18+): `npm install && npm run build`, then look at `dist/og-image.png`.

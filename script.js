@@ -341,7 +341,7 @@ $("#msg-form").addEventListener("submit", (e) => {
 $("#year").textContent = new Date().getFullYear();
 
 /* =========================================================
-   Theme toggle (light by default, remembered per visitor)
+   Theme toggle (dark by default, remembered per visitor)
    ========================================================= */
 const root = document.documentElement;
 const themeBtn = $("#theme-btn");
@@ -351,11 +351,11 @@ function applyTheme(t) {
   themeBtn.setAttribute("aria-label", t === "dark" ? "Switch to light theme" : "Switch to dark theme");
   themeMeta.setAttribute("content", t === "dark" ? "#0E0B16" : "#F8F6FD");
 }
-applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
+applyTheme(root.dataset.theme === "light" ? "light" : "dark");
 themeBtn.addEventListener("click", () => {
   const next = root.dataset.theme === "dark" ? "light" : "dark";
   applyTheme(next);
-  try { localStorage.setItem("theme-v2", next); } catch (e) { /* storage blocked */ }
+  try { localStorage.setItem("theme-v3", next); } catch (e) { /* storage blocked */ }
 });
 
 /* =========================================================
