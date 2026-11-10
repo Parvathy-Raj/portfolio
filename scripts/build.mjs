@@ -68,7 +68,7 @@ const card = h("div", {
       h("div", { display: "flex", fontSize: 84, fontWeight: 800, color: t.heading, letterSpacing: -2, lineHeight: 1.05 }, "Parvathy Raj"),
       h("div", { display: "flex", fontSize: 36, fontWeight: 700, color: t.a1, marginTop: 18 }, "Building trustworthy AI systems"),
       h("div", { display: "flex", fontSize: 26, fontWeight: 500, color: t["text-2"], marginTop: 22, lineHeight: 1.45 },
-        "Agentic AI, RAG systems and MCP servers, built with evaluation from day one."),
+        "Enterprise AI solutions: AI agents, RAG, workflow automation and integrations that improve decisions."),
       h("div", { display: "flex", fontFamily: mono, fontSize: 22, color: t.muted, marginTop: 40 }, "parvathy-raj.vercel.app"),
     ),
     // Right: monogram
