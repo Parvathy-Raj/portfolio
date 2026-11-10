@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="styles.css?v=16">
   <script>
     document.documentElement.classList.add("js");
     try { var t = localStorage.getItem("theme-v3"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
@@ -71,6 +71,7 @@
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="round-btn theme-btn" id="theme-btn" type="button" aria-label="Switch to light theme">
@@ -339,18 +340,49 @@
       </div>
     </section>
 
+    <!-- ================= RESEARCH ================= -->
+    <section class="section" id="research" aria-labelledby="research-h">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">Publications</p>
+          <h2 id="research-h"><span class="grad">Research</span></h2>
+          <span class="bar"></span>
+        </div>
+        <div class="cards">
+          <article class="card paper-card reveal">
+            <div class="card-body">
+              <p class="card-tag"><span class="dot"></span>NLP · Peer-reviewed</p>
+              <h3>Comprehensive Plagiarism Detection in Malayalam Texts</h3>
+              <p>An application that checks Malayalam scholarly writing for plagiarism against web content. Malayalam is a low-resource language with few tools of this kind, so the paper compares four text-matching algorithms to find the most reliable one.</p>
+              <ul class="checks"><li>Compared SequenceMatcher, N-Grams, Rabin-Karp and Cosine Similarity</li><li>Cosine Similarity detected plagiarism best, at a 92.45% rate</li><li>Submit text, analyse it and review the results interactively</li></ul>
+              <div class="card-actions">
+                <a class="btn btn-small" href="https://aclanthology.org/2024.icon-1.40.pdf" target="_blank" rel="noopener"><svg><use href="#i-file"/></svg>Read the paper</a>
+                <a class="btn btn-small btn-ghost" href="https://aclanthology.org/2024.icon-1.40/" target="_blank" rel="noopener"><svg><use href="#i-arrow"/></svg>ACL Anthology</a>
+              </div>
+            </div>
+            <a class="paper-cover" href="https://aclanthology.org/2024.icon-1.40.pdf" target="_blank" rel="noopener" aria-label="Open the paper as a PDF">
+              <span class="ico"><svg><use href="#i-file"/></svg></span>
+              <span class="paper-venue">ICON 2024</span>
+              <span class="paper-conf">Proceedings of the 21st International Conference on Natural Language Processing</span>
+              <span class="paper-org">NLP Association of India</span>
+              <span class="paper-open">Open PDF <svg><use href="#i-arrow"/></svg></span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= EDUCATION ================= -->
     <section class="section" id="education" aria-labelledby="edu-h">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="kicker">Academics</p>
-          <h2 id="edu-h">Education &amp; <span class="grad">Research</span></h2>
+          <h2 id="edu-h"><span class="grad">Education</span></h2>
           <span class="bar"></span>
         </div>
         <div class="edu">
           <article class="edu-card reveal"><span class="ico"><svg><use href="#i-grad"/></svg></span><p class="edu-type">Master's degree</p><h3>M.Sc Big Data Analytics</h3><p>Central University of Rajasthan</p></article>
           <article class="edu-card reveal"><span class="ico"><svg><use href="#i-grad"/></svg></span><p class="edu-type">Bachelor's degree</p><h3>B.Sc Computer Science</h3><p>University of Kerala</p></article>
-          <article class="edu-card reveal" id="research"><span class="ico"><svg><use href="#i-file"/></svg></span><p class="edu-type">Publication · ICON 2024</p><h3>Comprehensive Plagiarism Detection in Malayalam Texts</h3><p>NLP Association of India</p></article>
         </div>
       </div>
     </section>
@@ -458,6 +490,6 @@
     <a class="btn" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
 
-  <script src="script.js?v=15"></script>
+  <script src="script.js?v=16"></script>
 </body>
 </html>
