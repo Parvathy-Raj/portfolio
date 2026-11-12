@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=18">
   <script>
     document.documentElement.classList.add("js");
     try { var t = localStorage.getItem("theme-v3"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
@@ -331,6 +331,24 @@
               <span class="play"><svg><use href="#i-play"/></svg></span>
             </button>
           </article>
+
+          <article class="card reveal" id="hallucination-firewall" data-project="hallucination-firewall">
+            <div class="card-body">
+              <p class="card-tag"><span class="dot"></span>AI reliability</p>
+              <h3>Hallucination Firewall</h3>
+              <p>An MCP server that checks an agent's answer against the tool outputs it actually received. It blocks wrong figures and invented claims, and rewrites the answer with citations.</p>
+              <ul class="checks"><li>Exact checks, then an NLI model, then an LLM judge only when needed</li><li>Wrong figures replaced with the evidence value</li><li>Claude Code hook stops unverified answers</li></ul>
+              <dl class="mini-metrics"><div><dt>Verifier tiers</dt><dd>3</dd></div><div><dt>MCP tools</dt><dd>7</dd></div><div><dt>Tests</dt><dd>45</dd></div></dl>
+              <div class="card-actions">
+                <button class="btn btn-small open-modal" type="button"><svg><use href="#i-play"/></svg>Watch demo</button>
+                <a class="btn btn-small btn-ghost" href="https://github.com/Parvathy-Raj/hallucination-firewall" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>Code</a>
+              </div>
+            </div>
+            <button class="thumb" type="button" aria-label="Open Hallucination Firewall demo and details">
+              <video src="media/hallucination-firewall.mp4" poster="media/hallucination-firewall.jpg" muted loop playsinline preload="metadata" tabindex="-1"></video>
+              <span class="play"><svg><use href="#i-play"/></svg></span>
+            </button>
+          </article>
         </div>
 
         <div class="more reveal">
@@ -462,6 +480,22 @@
     <ul class="pills"><li>Python</li><li>MCP</li><li>bge-small</li><li>BM25</li><li>Cross-encoders</li></ul>
     <a class="btn" href="https://github.com/Parvathy-Raj/docs-brain-mcp-server" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
+  <template id="tpl-hallucination-firewall">
+    <p class="card-tag"><span class="dot"></span>AI reliability</p>
+    <h3 id="modal-title">Hallucination Firewall</h3>
+    <p class="cap">Recording: a draft client email about UAE VAT registration is checked against the FTA guides. Two wrong figures are blocked, and the corrected email cites the guide passages.</p>
+    <p>Agents call tools, get the right data back, and still misstate it in the answer. The Hallucination Firewall is an MCP server that records every tool output, splits the draft answer into single-fact claims, checks each one against that evidence, and returns a verdict per claim with the passage that proves or disproves it.</p>
+    <ul class="checks">
+      <li>Tiered verification, cheapest first: exact checks on numbers, dates and names, then an NLI model on CPU, then an LLM judge only for uncertain claims</li>
+      <li>Evidence ledger with hybrid retrieval: BM25 and bge-small embeddings merged with reciprocal rank fusion</li>
+      <li>Block, annotate or rewrite. The rewrite is deterministic, so it can't add hallucinations of its own</li>
+      <li>Enforced three ways: proxy mode in front of other MCP servers, a Claude Code hook that stops unverified answers, and a Python SDK</li>
+      <li>Evaluated on RAGTruth and HaluEval with precision, recall, false-flag rate, latency and cost per answer</li>
+    </ul>
+    <dl class="mini-metrics"><div><dt>Verifier tiers</dt><dd>3</dd></div><div><dt>MCP tools</dt><dd>7</dd></div><div><dt>Tests</dt><dd>45</dd></div></dl>
+    <ul class="pills"><li>Python</li><li>MCP</li><li>DeBERTa NLI</li><li>bge-small</li><li>BM25</li><li>Groq</li><li>Claude Code hooks</li></ul>
+    <a class="btn" href="https://github.com/Parvathy-Raj/hallucination-firewall" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
+  </template>
   <template id="tpl-uae-rag">
     <p class="card-tag"><span class="dot"></span>RAG and evaluation</p>
     <h3 id="modal-title">UAE Regulatory RAG</h3>
@@ -493,6 +527,6 @@
     <a class="btn" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
 
-  <script src="script.js?v=17"></script>
+  <script src="script.js?v=18"></script>
 </body>
 </html>

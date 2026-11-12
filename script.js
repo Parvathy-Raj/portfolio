@@ -12,6 +12,7 @@ const SOURCES = {
   "docs-brain": "Docs Brain MCP Server",
   "uae-rag": "UAE Regulatory RAG",
   "prompt-heist": "Prompt Heist",
+  "hallucination-firewall": "Hallucination Firewall",
   "experience": "Experience",
   "research": "Research",
   "education": "Education",
@@ -23,11 +24,15 @@ const SOURCES = {
 
 const KB = [
   {
-    keys: ["mcp", "model context protocol", "server", "claude desktop", "cursor", "tool", "tools", "function calling"],
-    answer: "Yes. Docs Brain is an MCP server that gives Claude Desktop, Cursor and other MCP clients cited search over the FastAPI docs, with typed tools and structured output [docs-brain]. At Kinetics Group I work on agents and tool calling day to day [experience].",
+    keys: ["hallucination", "hallucinations", "hallucinate", "firewall", "fact check", "fact-check", "verify", "verification", "grounded", "grounding", "nli", "trust", "reliable", "reliability"],
+    answer: "The Hallucination Firewall is an MCP server that checks an agent's answer against the tool outputs it actually received. It splits the draft into single-fact claims, verifies each with exact checks, an NLI model and an LLM judge only when needed, then blocks or rewrites wrong claims with citations [hallucination-firewall]. UAE Regulatory RAG also refuses questions its sources don't cover instead of guessing [uae-rag].",
   },
   {
-    keys: ["rag", "retrieval", "test", "testing", "evaluate", "evaluation", "eval", "quality", "measure", "accuracy", "recall", "faithfulness", "hallucination", "metrics", "golden"],
+    keys: ["mcp", "model context protocol", "server", "claude desktop", "cursor", "tool", "tools", "function calling"],
+    answer: "Yes. Docs Brain is an MCP server that gives Claude Desktop, Cursor and other MCP clients cited search over the FastAPI docs, with typed tools and structured output [docs-brain]. The Hallucination Firewall is another MCP server: it verifies an agent's answer against its tool outputs before it goes out [hallucination-firewall]. At Kinetics Group I work on agents and tool calling day to day [experience].",
+  },
+  {
+    keys: ["rag", "retrieval", "test", "testing", "evaluate", "evaluation", "eval", "quality", "measure", "accuracy", "recall", "faithfulness", "metrics", "golden"],
     answer: "I build the evaluation before the feature. UAE Regulatory RAG has a human-verified golden set, an LLM judge checked against human labels, and a CI gate that blocks pull requests that make retrieval or faithfulness worse [uae-rag]. Docs Brain reached 98% recall@5 on 40 hand-labelled questions, and the same evaluation showed rerankers weren't worth their cost [docs-brain].",
   },
   {
@@ -64,7 +69,7 @@ const KB = [
   },
   {
     keys: ["project", "projects", "built", "portfolio", "demo", "best"],
-    answer: "Three main projects, each with a demo on this page: an MCP server for cited docs search [docs-brain], a RAG system for UAE tax guides with a CI evaluation gate [uae-rag], and a prompt-injection game with a benchmark [prompt-heist].",
+    answer: "Four main projects, each with a demo on this page: a RAG system for UAE tax guides with a CI evaluation gate [uae-rag], a prompt-injection game with a benchmark [prompt-heist], an MCP server for cited docs search [docs-brain], and an MCP server that catches hallucinations in agent answers [hallucination-firewall].",
   },
 ];
 
@@ -272,7 +277,7 @@ $$("[data-tabs]").forEach((wrap) => {
 /* =========================================================
    Project cards: hover preview + modal
    ========================================================= */
-const cards = $$(".card");
+const cards = $$(".card[data-project]"); // project cards only (the research paper card has no demo)
 const previewOn = (card) => { const v = $("video", card); card.classList.add("previewing"); v.play().catch(() => {}); };
 const previewOff = (card) => { const v = $("video", card); card.classList.remove("previewing"); v.pause(); };
 
