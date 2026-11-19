@@ -45,7 +45,7 @@ const KB = [
   },
   {
     keys: ["experience", "years", "work", "job", "jobs", "career", "company", "companies", "kinetics", "renie", "icfoss", "kpmg", "current", "role", "now"],
-    answer: "I have 3 years of experience in AI and ML. I'm an AI Engineer at Kinetics Group in Dubai, building agentic AI systems and multi-agent workflows. Before that I was an AI Engineer at Renie in Dubai, an AI/ML Engineer at ICFOSS in India, and a data analytics consulting intern at KPMG [experience].",
+    answer: "I have 3 years of experience in AI and ML. I'm an AI Engineer at Kinetics Group in Dubai, where I built the AI Submittal Control Platform (prep time down from 1–2 hours to 5–10 minutes, 150+ engineering hours saved a month), 5 production n8n workflows, LLM inquiry routing and the KATS LangGraph agent. Before that I was an AI Engineer at Renie in Dubai, an AI/ML Engineer at ICFOSS in India, and a data analytics consulting intern at KPMG [experience].",
   },
   {
     keys: ["agent", "agents", "agentic", "multi-agent", "langgraph", "langchain", "llamaindex", "workflow", "automation", "n8n", "memory", "human-in-the-loop"],

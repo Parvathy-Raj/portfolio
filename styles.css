@@ -274,6 +274,10 @@ svg { width: 1em; height: 1em; flex: none; }
 .job h3 { font-size: 20px; }
 .company { display: inline-block; font-weight: 700; margin-top: 4px; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
 .when { font-family: var(--mono); font-size: 12.5px; color: var(--muted); white-space: nowrap; padding-top: 4px; }
+.job-lede { font-size: 15.5px; line-height: 1.65; color: var(--text-2); margin-bottom: 18px; max-width: 72ch; }
+.job-metrics { margin-bottom: 20px; }
+.job-metrics dd { font-size: 19px; }
+.points strong { font-weight: 700; color: var(--text); }
 .points { display: grid; gap: 8px; margin-bottom: 18px; }
 .points li { position: relative; padding-left: 22px; font-size: 15.5px; line-height: 1.65; }
 .points li::before { content: "▸"; position: absolute; left: 2px; top: 0; color: var(--a1); }
@@ -430,6 +434,10 @@ svg { width: 1em; height: 1em; flex: none; }
   .timeline { padding-left: 30px; }
   .timeline::before { left: 6px; }
   .job { padding: 22px 20px; }
+  .job-metrics { grid-template-columns: 1fr; gap: 8px; }
+  .job-metrics div { flex-direction: row-reverse; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; text-align: left; }
+  .job-metrics dt { margin-top: 0; }
+  .job-metrics dd { font-size: 17px; white-space: nowrap; }
   .job::before { left: -30px; top: 28px; width: 14px; height: 14px; }
   .job-head { flex-direction: column; gap: 6px; }
   .when { padding-top: 0; white-space: normal; }

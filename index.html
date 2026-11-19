@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=18">
+  <link rel="stylesheet" href="styles.css?v=19">
   <script>
     document.documentElement.classList.add("js");
     try { var t = localStorage.getItem("theme-v3"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
@@ -234,34 +234,62 @@
           <li class="job reveal">
             <div class="job-head">
               <div><h3>AI Engineer</h3><p class="company">Kinetics Group</p></div>
-              <p class="when">May 2026 – Present · Dubai</p>
+              <p class="when">May 2026 – Present · Dubai, UAE</p>
             </div>
-            <ul class="points"><li>Building agentic AI systems and multi-agent workflows.</li><li>Delivering LLM-powered automation for business processes.</li></ul>
-            <ul class="pills"><li>Agentic AI</li><li>Multi-agent systems</li><li>LLM automation</li></ul>
+            <p class="job-lede">I work with the CEO and the heads of Sales, Engineering, Logistics and Administration to find manual processes worth automating, rank them by measurable outcome, and ship them as production AI platforms.</p>
+            <dl class="mini-metrics job-metrics"><div><dt>Submittal prep time</dt><dd>2 hrs → 10 min</dd></div><div><dt>Engineering hours saved / month</dt><dd>150+</dd></div><div><dt>Inquiry response time</dt><dd>2 days → &lt;1 hr</dd></div></dl>
+            <ul class="points">
+              <li><strong>AI Submittal Control Platform.</strong> Designed and built the platform the engineering team now uses for every submittal: 100% adoption, 200+ submittals a month.</li>
+              <li><strong>Cross-department automation.</strong> Shipped 5 production n8n workflows (80% adoption) that connect NetSuite APIs, REST services, databases, email and AI agents, removing manual hand-offs between teams.</li>
+              <li><strong>Inquiry routing.</strong> Rebuilt inquiry management around LLM classification and routing, so inquiries reach the right person in under an hour.</li>
+              <li><strong>KATS AI Agent.</strong> Built a LangGraph agent with function calling and MCP integrations for engineering knowledge lookup, operational support and report generation.</li>
+              <li><strong>Agentic RAG over engineering documents.</strong> Turned large document repositories into searchable knowledge bases with LlamaIndex, pgvector, OCR and hybrid search.</li>
+              <li><strong>Reporting and model strategy.</strong> Automated daily, weekly and monthly NetSuite executive reports and BI dashboards. Benchmarked OpenAI, Claude, Gemini and Groq and set model-routing rules per task.</li>
+            </ul>
+            <ul class="pills"><li>Python</li><li>FastAPI</li><li>LangGraph</li><li>LlamaIndex</li><li>MCP</li><li>pgvector</li><li>PostgreSQL</li><li>n8n</li><li>NetSuite</li><li>Docker</li></ul>
           </li>
           <li class="job reveal">
             <div class="job-head">
               <div><h3>AI Engineer</h3><p class="company">Renie</p></div>
-              <p class="when">From Jan 2025 · Dubai</p>
+              <p class="when">Jan 2025 – Dec 2025 · Dubai, UAE</p>
             </div>
-            <ul class="points"><li>Built an AI analytics agent that connects LLaMA 3 8B to PostgreSQL.</li><li>The team can ask rental and financial questions in plain language and get answers from live data.</li></ul>
-            <ul class="pills"><li>LLaMA 3</li><li>PostgreSQL</li><li>Text-to-SQL agent</li></ul>
+            <p class="job-lede">Built the company's GenAI layer: natural-language analytics on live business data, a production RAG chatbot, and a recommendation engine, all deployed on AWS.</p>
+            <dl class="mini-metrics job-metrics"><div><dt>Manual reporting effort</dt><dd>−40%</dd></div><div><dt>Production AI services</dt><dd>3</dd></div><div><dt>Deployment</dt><dd>AWS · CI/CD</dd></div></dl>
+            <ul class="points">
+              <li><strong>Natural-language analytics.</strong> Built a platform (LangChain, PostgreSQL, LLMs) that lets non-technical staff ask questions about rental, customer and financial data in plain English.</li>
+              <li><strong>AI SQL agents.</strong> Added conversation memory, dynamic SQL generation, tool calling and RAG so answers stay accurate and in context. Used Llama 3 on Groq and OpenAI-compatible APIs to surface pricing insights, customer trends and anomalies.</li>
+              <li><strong>Production RAG chatbot.</strong> Built ingestion, embeddings, semantic retrieval and generation end to end, with LangSmith tracing for monitoring.</li>
+              <li><strong>Recommendation engine.</strong> Combined collaborative filtering, content-based filtering and market basket analysis, served through FastAPI.</li>
+              <li><strong>Delivery.</strong> Shipped GenAI services on AWS with Docker and CI/CD pipelines for repeatable releases.</li>
+            </ul>
+            <ul class="pills"><li>LangChain</li><li>Llama 3</li><li>Groq</li><li>PostgreSQL</li><li>RAG</li><li>LangSmith</li><li>FastAPI</li><li>AWS</li><li>Docker</li></ul>
           </li>
           <li class="job reveal">
             <div class="job-head">
               <div><h3>AI/ML Engineer</h3><p class="company">ICFOSS</p></div>
-              <p class="when">From Jun 2023 · India</p>
+              <p class="when">Jun 2023 – Oct 2024 · Trivandrum, India</p>
             </div>
-            <ul class="points"><li>Built a plagiarism checker for Malayalam text end to end, from NLP pipeline to web app.</li><li>Deployed on Linux with NGINX and Gunicorn.</li><li>The work led to a paper at ICON 2024 (NLP Association of India).</li></ul>
-            <ul class="pills"><li>NLTK</li><li>Machine learning</li><li>Django</li><li>React</li><li>NGINX</li></ul>
+            <p class="job-lede">Took a Malayalam plagiarism detection system from research to a deployed product, which led to a paper at ICON 2024 (NLP Association of India).</p>
+            <dl class="mini-metrics job-metrics"><div><dt>Response latency</dt><dd>−40%</dd></div><div><dt>Analytics efficiency</dt><dd>+30%</dd></div><div><dt>Peer-reviewed paper</dt><dd>ICON 2024</dd></div></dl>
+            <ul class="points">
+              <li><strong>Malayalam plagiarism detection.</strong> Designed and built the platform end to end with Django REST Framework, React, Python, NLP and machine learning.</li>
+              <li><strong>NLP pipelines.</strong> Created domain-specific tokenization and processing pipelines over large web datasets to improve accuracy and efficiency.</li>
+              <li><strong>Infrastructure.</strong> Deployed with Docker, NGINX and Gunicorn on Linux, cutting response latency by 40%.</li>
+              <li><strong>Forecasting and BI.</strong> Built time-series models for temperature, rainfall, pressure and wind speed, and Tableau and Power BI dashboards that automated reporting.</li>
+            </ul>
+            <ul class="pills"><li>Python</li><li>NLP</li><li>Machine learning</li><li>Django REST</li><li>React</li><li>Docker</li><li>NGINX</li><li>Time series</li></ul>
           </li>
           <li class="job reveal">
             <div class="job-head">
               <div><h3>Data Analytics Consulting Intern</h3><p class="company">KPMG</p></div>
-              <p class="when">From Apr 2023</p>
+              <p class="when">Apr 2023 – May 2023</p>
             </div>
-            <ul class="points"><li>Data analytics consulting internship.</li></ul>
-            <ul class="pills"><li>Data analytics</li><li>Consulting</li></ul>
+            <p class="job-lede">Data quality, analysis and dashboards behind client strategy recommendations.</p>
+            <ul class="points">
+              <li><strong>Data quality.</strong> Improved dataset quality by 95% through profiling, missing-value analysis, duplicate detection and outlier treatment.</li>
+              <li><strong>Analysis and reporting.</strong> Ran exploratory analysis and customer segmentation in Python and Excel, and built Tableau and Power BI dashboards for the recommendations.</li>
+            </ul>
+            <ul class="pills"><li>Python</li><li>Excel</li><li>Tableau</li><li>Power BI</li><li>Segmentation</li></ul>
           </li>
         </ol>
       </div>
@@ -527,6 +555,6 @@
     <a class="btn" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
 
-  <script src="script.js?v=18"></script>
+  <script src="script.js?v=19"></script>
 </body>
 </html>
