@@ -4,9 +4,10 @@ const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 /* =========================================================
-   Chat: a tiny keyword retriever over this page's content.
-   Every answer cites the section it came from; anything
-   else gets a refusal.
+   "Ask about Parvathy": a floating assistant.
+   A tiny keyword retriever over this page's content. Every
+   answer cites the section it came from; anything else gets
+   a polite refusal instead of a guess.
    ========================================================= */
 const SOURCES = {
   "docs-brain": "Docs Brain MCP Server",
@@ -22,59 +23,107 @@ const SOURCES = {
   "about": "About",
 };
 
+// Answers: one paragraph per line; lines starting with "- " become bullets.
 const KB = [
   {
-    keys: ["hallucination", "hallucinations", "hallucinate", "firewall", "fact check", "fact-check", "verify", "verification", "grounded", "grounding", "nli", "trust", "reliable", "reliability"],
-    answer: "The Hallucination Firewall is an MCP server that checks an agent's answer against the tool outputs it actually received. It splits the draft into single-fact claims, verifies each with exact checks, an NLI model and an LLM judge only when needed, then blocks or rewrites wrong claims with citations [hallucination-firewall]. UAE Regulatory RAG also refuses questions its sources don't cover instead of guessing [uae-rag].",
+    id: "now",
+    keys: ["now", "current", "currently", "today", "kinetics", "submittal", "submittals", "netsuite", "routing", "inquiry", "inquiries", "kats", "doing"],
+    answer: "Parvathy is an AI Engineer at Kinetics Group in Dubai, working with the CEO and the heads of Sales, Engineering, Logistics and Administration [experience]. Recent work:\n- AI Submittal Control Platform: prep time down from 2 hours to 10 minutes, used for 200+ submittals a month\n- 5 production n8n workflows linking NetSuite, databases, email and AI agents\n- LLM inquiry routing that gets each inquiry to the right person in under an hour\n- KATS, a LangGraph agent with function calling and MCP integrations",
   },
   {
-    keys: ["mcp", "model context protocol", "server", "claude desktop", "cursor", "tool", "tools", "function calling"],
-    answer: "Yes. Docs Brain is an MCP server that gives Claude Desktop, Cursor and other MCP clients cited search over the FastAPI docs, with typed tools and structured output [docs-brain]. The Hallucination Firewall is another MCP server: it verifies an agent's answer against its tool outputs before it goes out [hallucination-firewall]. At Kinetics Group I work on agents and tool calling day to day [experience].",
+    id: "experience",
+    keys: ["experience", "years", "career", "job", "jobs", "company", "companies", "renie", "icfoss", "kpmg", "background", "previous", "history", "roles"],
+    answer: "Parvathy has 3 years of experience in AI and ML [experience]:\n- AI Engineer, Kinetics Group, Dubai (May 2026 – present)\n- AI Engineer, Renie, Dubai (2025): plain-English analytics, a production RAG chatbot and a recommendation engine on AWS\n- AI/ML Engineer, ICFOSS, India (2023–2024): Malayalam plagiarism detection, published at ICON 2024\n- Data analytics consulting intern, KPMG (2023)",
   },
   {
-    keys: ["rag", "retrieval", "test", "testing", "evaluate", "evaluation", "eval", "quality", "measure", "accuracy", "recall", "faithfulness", "metrics", "golden"],
-    answer: "I build the evaluation before the feature. UAE Regulatory RAG has a human-verified golden set, an LLM judge checked against human labels, and a CI gate that blocks pull requests that make retrieval or faithfulness worse [uae-rag]. Docs Brain reached 98% recall@5 on 40 hand-labelled questions, and the same evaluation showed rerankers weren't worth their cost [docs-brain].",
+    id: "projects",
+    keys: ["project", "projects", "built", "build", "portfolio", "demo", "demos", "made", "showcase"],
+    answer: "Four portfolio projects, each with a demo on this page:\n- UAE Regulatory RAG: cited answers over UAE tax guides, with a CI evaluation gate [uae-rag]\n- Prompt Heist: a prompt-injection game and benchmark [prompt-heist]\n- Docs Brain: an MCP server for cited docs search [docs-brain]\n- Hallucination Firewall: an MCP server that catches hallucinations in agent answers [hallucination-firewall]\nOpen any project card to watch its demo.",
   },
   {
-    keys: ["prompt injection", "injection", "security", "jailbreak", "guard", "guardrails", "safety", "attack", "red team", "secure"],
-    answer: "Prompt Heist is a game and benchmark built on prompt injection: five stacked defenses, a leak detector for disguised secrets, and attack-success and false-positive rates with confidence intervals [prompt-heist]. Docs Brain also filters injection attempts out of retrieved docs before the model sees them [docs-brain].",
+    id: "hardest",
+    keys: ["hardest", "difficult", "challenging", "challenge", "complex", "proud", "impressive", "technically"],
+    answer: "The Hallucination Firewall is the most technically involved [hallucination-firewall]. It splits an agent's draft answer into single-fact claims and checks each one against the tool outputs the agent actually received: exact checks first, then an NLI model, and an LLM judge only when needed. Wrong claims are blocked or rewritten with citations.\nIn production, the biggest is the AI Submittal Control Platform at Kinetics Group, which the engineering team uses for every submittal [experience].",
   },
   {
-    keys: ["location", "where", "based", "uae", "dubai", "india"],
-    answer: "I've worked in Dubai (Renie) and India (ICFOSS) [experience]. You can reach me on my UAE or Indian number [contact].",
+    id: "backend",
+    keys: ["backend", "back-end", "api", "apis", "fastapi", "django", "database", "databases", "sql", "postgres", "postgresql", "deploy", "deployment", "aws", "docker", "infrastructure", "devops"],
+    answer: "Parvathy builds backends in Python [skills]:\n- FastAPI services for AI features, and Django REST Framework at ICFOSS\n- PostgreSQL with pgvector, plus FAISS, ChromaDB and Pinecone for retrieval\n- Docker, NGINX, Gunicorn, AWS and CI/CD to ship; the ICFOSS deployment cut response latency by 40% [experience]\n- NetSuite APIs, REST services, databases and email wired together through n8n",
   },
   {
-    keys: ["experience", "years", "work", "job", "jobs", "career", "company", "companies", "kinetics", "renie", "icfoss", "kpmg", "current", "role", "now"],
-    answer: "I have 3 years of experience in AI and ML. I'm an AI Engineer at Kinetics Group in Dubai, where I built the AI Submittal Control Platform (prep time down from 1–2 hours to 5–10 minutes, 150+ engineering hours saved a month), 5 production n8n workflows, LLM inquiry routing and the KATS LangGraph agent. Before that I was an AI Engineer at Renie in Dubai, an AI/ML Engineer at ICFOSS in India, and a data analytics consulting intern at KPMG [experience].",
+    id: "firewall",
+    keys: ["hallucination", "hallucinations", "hallucinate", "firewall", "fact check", "fact-check", "verify", "verification", "grounded", "grounding", "nli", "trust", "trustworthy", "reliable", "reliability"],
+    answer: "The Hallucination Firewall is an MCP server that checks an agent's answer against the tool outputs it actually received [hallucination-firewall]:\n- Splits the draft into single-fact claims\n- Verifies each with exact checks, an NLI model, and an LLM judge only when needed\n- Blocks or rewrites wrong claims, with citations\nUAE Regulatory RAG also refuses questions its sources don't cover instead of guessing [uae-rag].",
   },
   {
-    keys: ["agent", "agents", "agentic", "multi-agent", "langgraph", "langchain", "llamaindex", "workflow", "automation", "n8n", "memory", "human-in-the-loop"],
-    answer: "Agentic AI is my main focus: multi-agent systems, tool calling, agent memory and human-in-the-loop design with LangGraph and LangChain [skills]. At Renie I built an analytics agent that turns plain-language questions into PostgreSQL queries [experience].",
+    id: "mcp",
+    keys: ["mcp", "model context protocol", "claude desktop", "cursor", "tool", "tools", "function calling"],
+    answer: "Yes, two of them. Docs Brain gives Claude Desktop, Cursor and other MCP clients cited search over the FastAPI docs, with typed tools and structured output [docs-brain]. The Hallucination Firewall verifies an agent's answer against its tool outputs before it goes out [hallucination-firewall].\nAt Kinetics Group, the KATS agent also uses MCP integrations [experience].",
   },
   {
+    id: "eval",
+    keys: ["rag", "retrieval", "test", "testing", "tests", "evaluate", "evaluation", "eval", "evals", "quality", "measure", "accuracy", "recall", "faithfulness", "metrics", "golden"],
+    answer: "Parvathy builds the evaluation before the feature [uae-rag]:\n- A human-verified golden set for UAE Regulatory RAG\n- An LLM judge checked against human labels\n- A CI gate that blocks pull requests that make retrieval or faithfulness worse\nDocs Brain reached 98% recall@5 on 40 hand-labelled questions, and the same evaluation showed rerankers weren't worth their cost [docs-brain].",
+  },
+  {
+    id: "security",
+    keys: ["prompt injection", "injection", "security", "jailbreak", "guard", "guardrails", "safety", "attack", "attacks", "red team", "secure"],
+    answer: "Prompt Heist is a game and benchmark built on prompt injection [prompt-heist]:\n- Five stacked defenses\n- A leak detector that catches disguised secrets\n- Attack-success and false-positive rates with confidence intervals\nDocs Brain also filters injection attempts out of retrieved docs before the model sees them [docs-brain].",
+  },
+  {
+    id: "agents",
+    keys: ["agent", "agents", "agentic", "multi-agent", "langgraph", "langchain", "llamaindex", "workflow", "workflows", "automation", "automate", "n8n", "memory", "human-in-the-loop"],
+    answer: "Agentic AI is Parvathy's main focus: multi-agent systems, tool calling, agent memory and human-in-the-loop design with LangGraph and LangChain [skills]. Examples:\n- KATS, a LangGraph agent for engineering knowledge lookup and report generation at Kinetics Group [experience]\n- 5 production n8n workflows that remove manual hand-offs between teams\n- AI SQL agents at Renie that answer plain-English questions over PostgreSQL",
+  },
+  {
+    id: "stack",
+    keys: ["skills", "stack", "python", "vector", "pinecone", "faiss", "chroma", "openai", "groq", "ollama", "gemini", "claude", "llm", "llms", "tech", "technology", "technologies", "toolkit", "languages", "use"],
+    answer: "Parvathy's main stack [skills]:\n- Python, FastAPI and Django on the backend\n- LangGraph, LangChain and LlamaIndex for agents and RAG\n- PostgreSQL with pgvector, FAISS, ChromaDB and Pinecone for retrieval\n- OpenAI, Claude, Gemini, Groq and Ollama for models\n- Docker, AWS and CI/CD to ship",
+  },
+  {
+    id: "research",
     keys: ["research", "paper", "publication", "published", "icon", "malayalam", "plagiarism", "nlp"],
-    answer: "I published \"Comprehensive Plagiarism Detection in Malayalam Texts\" at ICON 2024 (NLP Association of India) [research], based on the plagiarism checker I built at ICFOSS [experience].",
+    answer: "Parvathy published \"Comprehensive Plagiarism Detection in Malayalam Texts\" at ICON 2024, the NLP Association of India's conference [research]. It grew out of the plagiarism detection platform built at ICFOSS [experience].",
   },
   {
-    keys: ["education", "degree", "msc", "m.sc", "bsc", "b.sc", "big data", "analytics", "computer science", "university", "study", "studied", "college"],
-    answer: "M.Sc in Big Data Analytics from the Central University of Rajasthan, and B.Sc in Computer Science from the University of Kerala [education].",
+    id: "education",
+    keys: ["education", "degree", "degrees", "msc", "m.sc", "bsc", "b.sc", "big data", "computer science", "university", "study", "studied", "college", "qualification"],
+    answer: "- M.Sc Big Data Analytics, Central University of Rajasthan\n- B.Sc Computer Science, University of Kerala [education]",
   },
   {
-    keys: ["skills", "stack", "python", "fastapi", "django", "postgres", "postgresql", "pgvector", "aws", "docker", "vector", "pinecone", "faiss", "chroma", "openai", "groq", "ollama", "gemini", "llm", "llms", "tech", "toolkit"],
-    answer: "Python and FastAPI on the backend; PostgreSQL with pgvector, FAISS, ChromaDB and Pinecone for retrieval; OpenAI, Claude, Gemini, Groq and Ollama for models; Docker, AWS and CI/CD to ship [skills].",
+    id: "location",
+    keys: ["location", "where", "based", "live", "uae", "dubai", "india"],
+    answer: "Parvathy is based in Dubai, and has worked in Dubai (Kinetics Group, Renie) and India (ICFOSS) [experience].",
   },
   {
-    keys: ["contact", "email", "hire", "call", "phone", "whatsapp", "linkedin", "github", "reach", "interview", "cv", "resume"],
-    answer: "Email parvathyraj12@gmail.com, or call or WhatsApp +971 50 403 1831 (UAE) or +91 80782 76949 (India) [contact].",
+    id: "contact",
+    keys: ["contact", "email", "hire", "call", "phone", "whatsapp", "linkedin", "github", "reach", "interview", "cv", "resume", "talk", "message"],
+    answer: "You can reach Parvathy by [contact]:\n- Email: parvathyraj12@gmail.com\n- Phone or WhatsApp: +971 50 403 1831 (UAE) or +91 80782 76949 (India)\n- The message form in the Contact section",
   },
   {
-    keys: ["project", "projects", "built", "portfolio", "demo", "best"],
-    answer: "Four main projects, each with a demo on this page: a RAG system for UAE tax guides with a CI evaluation gate [uae-rag], a prompt-injection game with a benchmark [prompt-heist], an MCP server for cited docs search [docs-brain], and an MCP server that catches hallucinations in agent answers [hallucination-firewall].",
+    id: "hello",
+    keys: ["hi", "hello", "hey", "thanks", "thank"],
+    answer: "Hi! Ask me anything about Parvathy's projects, stack or experience. Every answer links to where it comes from on this page.",
   },
 ];
 
-const STOP = new Set("a an the is are do does did you your i me my of to in on for and or with have has had can could what which how who about any ever she her he his they be been".split(" "));
+// Suggested questions, each tied to the answer it should open.
+const SUGGESTIONS = [
+  ["What projects has Parvathy built?", "projects"],
+  ["What does Parvathy work on now?", "now"],
+  ["Show me Parvathy's backend experience.", "backend"],
+  ["What was the most technically difficult project?", "hardest"],
+  ["Has Parvathy built an MCP server?", "mcp"],
+  ["How does Parvathy test RAG quality?", "eval"],
+  ["What technologies does Parvathy use?", "stack"],
+  ["Any prompt-injection experience?", "security"],
+  ["Tell me about the research paper.", "research"],
+  ["How can I contact Parvathy?", "contact"],
+];
+
+const STOP = new Set("a an the is are do does did you your i me my of to in on for and or with have has had can could what which how who about any ever she her he his they them their be been parvathy parvathy's raj tell show".split(" "));
 const tokens = (t) => t.toLowerCase().replace(/[^a-z0-9.\- ]+/g, " ").split(/\s+/).filter((w) => w && !STOP.has(w));
+const byId = Object.fromEntries(KB.map((e) => [e.id, e]));
 
 function retrieve(question) {
   const q = question.toLowerCase();
@@ -93,8 +142,14 @@ function retrieve(question) {
 }
 
 const escapeHtml = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const chatbot = $("#chatbot");
+const panel = $("#chat-panel");
+const launcher = $("#chat-launcher");
+const teaser = $("#chat-teaser");
 const log = $("#chat-log");
 const input = $("#ask-input");
+const chips = $("#chips");
+const asked = new Set();
 let busy = false;
 
 function bubble(cls, html) {
@@ -106,57 +161,110 @@ function bubble(cls, html) {
   return el;
 }
 
-function ask(question) {
+function renderChips() {
+  const left = SUGGESTIONS.filter(([, id]) => !asked.has(id)).slice(0, 4);
+  chips.innerHTML = left.map(([q, id]) => `<button type="button" class="chip" data-id="${id}">${escapeHtml(q)}</button>`).join("");
+  chips.hidden = left.length === 0 || busy;
+}
+chips.addEventListener("click", (e) => {
+  const c = e.target.closest(".chip");
+  if (c) ask(c.textContent, byId[c.dataset.id]);
+});
+
+function ask(question, forced) {
   const q = question.trim();
   if (!q || busy) { input.focus(); return; }
   busy = true;
+  chips.hidden = true;
   input.value = "";
   bubble("user", `<p>${escapeHtml(q)}</p>`);
   const thinking = bubble("bot", `<span class="typing" aria-label="Thinking"><i></i><i></i><i></i></span>`);
-  const entry = retrieve(q);
+  const entry = forced || retrieve(q);
+  if (entry) asked.add(entry.id);
 
   setTimeout(() => {
     thinking.remove();
+    const finish = () => { busy = false; renderChips(); log.scrollTop = log.scrollHeight; };
     if (!entry) {
-      bubble("bot refusal", `<p>This page doesn't answer that, so I won't guess. Email me at <a href="mailto:parvathyraj12@gmail.com">parvathyraj12@gmail.com</a> and I'll reply directly.</p>`);
-      busy = false;
-      return;
+      bubble("bot refusal", `<p>That isn't covered on this page, so I won't guess. Email Parvathy at <a href="mailto:parvathyraj12@gmail.com">parvathyraj12@gmail.com</a> for a direct reply.</p>`);
+      return finish();
     }
     // Number citations in order of first appearance.
     const order = [];
-    const text = entry.answer.replace(/\[([a-z-]+)\]/g, (_, id) => {
+    const marked = entry.answer.replace(/\s*\[([a-z-]+)\]/g, (_, id) => {
       if (!order.includes(id)) order.push(id);
-      return `[[${order.indexOf(id) + 1}:${id}]]`;
+      return ` [[${order.indexOf(id) + 1}:${id}]]`;
     });
-    const toHtml = (s) => escapeHtml(s).replace(/\[\[(\d+):([a-z-]+)\]\]/g,
+    const blocks = marked.split("\n").map((line) => line.startsWith("- ")
+      ? { li: true, words: line.slice(2).split(" ") }
+      : { li: false, words: line.split(" ") });
+    const total = blocks.reduce((n, b) => n + b.words.length, 0);
+    const inline = (s) => escapeHtml(s).replace(/\[\[(\d+):([a-z-]+)\]\]/g,
       (_, n, id) => `<a class="cite" href="#${id}" data-cite="${id}" aria-label="Source ${n}: ${SOURCES[id]}">${n}</a>`);
+    const render = (shown) => {
+      let html = "", inList = false, left = shown;
+      for (const b of blocks) {
+        if (left <= 0) break;
+        const text = inline(b.words.slice(0, left).join(" "));
+        left -= b.words.length;
+        if (b.li && !inList) { html += `<ul class="bul">`; inList = true; }
+        if (!b.li && inList) { html += `</ul>`; inList = false; }
+        html += b.li ? `<li>${text}</li>` : `<p>${text}</p>`;
+      }
+      return html + (inList ? "</ul>" : "");
+    };
     const sources = order.map((id, i) => `<li><b>${i + 1}</b><a href="#${id}" data-cite="${id}">${SOURCES[id]}</a></li>`).join("");
+    const msg = bubble("bot", `<div class="ans"></div>${sources ? `<ul class="sources" hidden>${sources}</ul>` : ""}`);
+    const body = $(".ans", msg), list = $(".sources", msg);
+    const done = () => { if (list) list.hidden = false; finish(); };
+    if (reduceMotion) { body.innerHTML = render(total); return done(); }
 
-    const msg = bubble("bot", `<p></p><ul class="sources" hidden>${sources}</ul>`);
-    const p = $("p", msg), list = $(".sources", msg);
-    const done = () => { list.hidden = false; log.scrollTop = log.scrollHeight; busy = false; };
-    if (reduceMotion) { p.innerHTML = toHtml(text); done(); return; }
-
-    const words = text.split(" ");
     let i = 0;
     const timer = setInterval(() => {
       i += 1;
-      p.innerHTML = toHtml(words.slice(0, i).join(" "));
+      body.innerHTML = render(i);
       log.scrollTop = log.scrollHeight;
-      if (i >= words.length) { clearInterval(timer); done(); }
-    }, 26);
+      if (i >= total) { clearInterval(timer); done(); }
+    }, 22);
   }, reduceMotion ? 0 : 550);
 }
 
+function setChat(open) {
+  chatbot.classList.toggle("open", open);
+  panel.hidden = !open;
+  launcher.setAttribute("aria-expanded", String(open));
+  launcher.setAttribute("aria-label", open ? "Close chat" : "Ask about Parvathy");
+  if (open) {
+    teaser.hidden = true;
+    try { sessionStorage.setItem("chat-seen", "1"); } catch (e) {}
+    log.scrollTop = log.scrollHeight;
+    if (canHover) input.focus();
+  }
+}
+launcher.addEventListener("click", () => setChat(panel.hidden));
+teaser.addEventListener("click", () => setChat(true));
+$("#chat-close").addEventListener("click", () => { setChat(false); launcher.focus(); });
+$$("[data-open-chat]").forEach((b) => b.addEventListener("click", () => setChat(true)));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) { setChat(false); launcher.focus(); } });
 $("#ask-form").addEventListener("submit", (e) => { e.preventDefault(); ask(input.value); });
-$$(".chip").forEach((c) => c.addEventListener("click", () => ask(c.textContent)));
+renderChips();
 
-// Following a citation highlights the source.
+// A one-time nudge, once per visit.
+(() => {
+  let seen = false;
+  try { seen = sessionStorage.getItem("chat-seen") === "1"; } catch (e) {}
+  if (seen) return;
+  setTimeout(() => { if (panel.hidden) teaser.hidden = false; }, 4000);
+  setTimeout(() => { teaser.hidden = true; }, 16000);
+})();
+
+// Following a citation highlights the source (and gets the panel out of the way on small screens).
 log.addEventListener("click", (e) => {
   const link = e.target.closest("[data-cite]");
   if (!link) return;
   const target = document.getElementById(link.dataset.cite);
   if (!target) return;
+  if (window.innerWidth < 640) setChat(false);
   target.classList.remove("flash");
   void target.offsetWidth;
   target.classList.add("flash");

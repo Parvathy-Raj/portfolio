@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="styles.css?v=20">
   <script>
     document.documentElement.classList.add("js");
     try { var t = localStorage.getItem("theme-v3"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
@@ -118,45 +118,34 @@
     <section class="section" id="about" aria-labelledby="about-h">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="kicker">About me</p>
-          <h2 id="about-h">Turning LLMs into <span class="grad">systems you can trust</span></h2>
+          <p class="kicker">About</p>
+          <h2 id="about-h">AI that gives teams <span class="grad">their hours back</span></h2>
           <span class="bar"></span>
         </div>
         <div class="about-grid">
           <div class="about-text reveal">
-            <p class="summary-label">Professional summary</p>
-            <p>AI Engineer with <strong>3 years of experience</strong> designing and delivering enterprise AI solutions that automate business processes and improve decision-making. I build AI agents, workflow automation, retrieval-augmented generation (RAG) and enterprise integrations using Python, FastAPI, LangGraph, LlamaIndex and modern LLMs, and I test them with golden datasets and LLM judges so they hold up in production.</p>
-            <p>I turn business requirements into scalable AI solutions and work closely with cross-functional stakeholders to drive AI adoption. I've delivered AI systems for teams in Dubai and India, and published NLP research at ICON 2024.</p>
-            <div class="about-meta">
-              <div><span class="ico"><svg><use href="#i-clock"/></svg></span><span><small>Experience</small>3 years in AI and ML</span></div>
-              <div><span class="ico"><svg><use href="#i-briefcase"/></svg></span><span><small>Now</small>AI Engineer, Kinetics Group, Dubai</span></div>
-              <div><span class="ico"><svg><use href="#i-grad"/></svg></span><span><small>Education</small>M.Sc Big Data Analytics</span></div>
-            </div>
+            <p class="summary-label">Who I am</p>
+            <p>I'm an AI Engineer at <strong>Kinetics Group</strong> in Dubai. I work directly with the CEO and department heads to find the manual work that slows teams down, then replace it with AI that runs in production. My AI Submittal Control Platform cut submittal prep from <strong>2 hours to 10 minutes</strong>, and the engineering team now uses it for every submittal.</p>
+            <p>Over <strong>3 years</strong> I've built AI agents, RAG over real business documents, n8n automations and plain-English analytics with Python, FastAPI, LangGraph, LlamaIndex and modern LLMs. I test every system against golden datasets and LLM judges before it ships. My NLP research on Malayalam plagiarism detection was published at ICON 2024.</p>
+            <ul class="about-tags">
+              <li><svg><use href="#i-check"/></svg>Works directly with the CEO</li>
+              <li><svg><use href="#i-check"/></svg>Production AI, not demos</li>
+              <li><svg><use href="#i-check"/></svg>Evaluation first</li>
+            </ul>
           </div>
 
-          <!-- Chat widget -->
-          <div class="chat reveal" role="region" aria-label="Ask about Parvathy">
-            <div class="chat-head">
+          <div class="about-side reveal">
+            <div class="about-meta">
+              <div><span class="ico"><svg><use href="#i-briefcase"/></svg></span><span><small>Now</small>AI Engineer, Kinetics Group, Dubai</span></div>
+              <div><span class="ico"><svg><use href="#i-clock"/></svg></span><span><small>Experience</small>3 years in AI and ML</span></div>
+              <div><span class="ico"><svg><use href="#i-grad"/></svg></span><span><small>Education</small>M.Sc Big Data Analytics</span></div>
+              <div><span class="ico"><svg><use href="#i-file"/></svg></span><span><small>Research</small>Published at ICON 2024</span></div>
+            </div>
+            <button type="button" class="ask-cta" data-open-chat>
               <span class="avatar"><svg><use href="#i-bot"/></svg></span>
-              <div>
-                <p class="chat-title">Ask about my work</p>
-                <p class="chat-sub"><span class="live"></span>Answers cite this page</p>
-              </div>
-            </div>
-            <div class="chat-log" id="chat-log" aria-live="polite">
-              <div class="msg bot"><p>Hi! Ask me anything about my projects, skills or experience. Every answer links to its source on this page, and I'll say so if I don't know.</p></div>
-            </div>
-            <div class="chips" id="chips" aria-label="Example questions">
-              <button type="button" class="chip">Have you built an MCP server?</button>
-              <button type="button" class="chip">How do you test RAG quality?</button>
-              <button type="button" class="chip">Prompt injection experience?</button>
-              <button type="button" class="chip">What do you work on now?</button>
-            </div>
-            <form class="chat-form" id="ask-form" autocomplete="off">
-              <label class="sr" for="ask-input">Your question</label>
-              <input id="ask-input" type="text" placeholder="Type a question…" maxlength="160">
-              <button type="submit" aria-label="Send question"><svg><use href="#i-send"/></svg></button>
-            </form>
+              <span><b>Have a question about my work?</b><small>Ask my portfolio assistant. Answers cite this page.</small></span>
+              <svg class="arr"><use href="#i-arrow"/></svg>
+            </button>
           </div>
         </div>
 
@@ -482,6 +471,33 @@
     </div>
   </footer>
 
+  <!-- Floating "Ask about Parvathy" assistant -->
+  <div class="chatbot" id="chatbot">
+    <p class="chat-teaser" id="chat-teaser" hidden>Ask me about Parvathy's work</p>
+    <div class="chat" id="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title" hidden>
+      <div class="chat-head">
+        <span class="avatar"><svg><use href="#i-bot"/></svg></span>
+        <div>
+          <p class="chat-title" id="chat-title">Ask about Parvathy</p>
+          <p class="chat-sub"><span class="live"></span>Answers instantly · cites this page</p>
+        </div>
+        <button type="button" class="chat-close" id="chat-close" aria-label="Close chat"><svg><use href="#i-x"/></svg></button>
+      </div>
+      <div class="chat-log" id="chat-log" aria-live="polite">
+        <div class="msg bot"><p>Hi, I'm Parvathy's portfolio assistant. Ask me about Parvathy's projects, stack or experience, or pick a suggestion below.</p></div>
+      </div>
+      <div class="chips" id="chips" aria-label="Suggested questions"></div>
+      <form class="chat-form" id="ask-form" autocomplete="off">
+        <label class="sr" for="ask-input">Your question</label>
+        <input id="ask-input" type="text" placeholder="Type a question…" maxlength="160">
+        <button type="submit" aria-label="Send question"><svg><use href="#i-send"/></svg></button>
+      </form>
+    </div>
+    <button type="button" class="chat-launcher" id="chat-launcher" aria-label="Ask about Parvathy" aria-expanded="false" aria-controls="chat-panel">
+      <svg class="i-open"><use href="#i-chat"/></svg><svg class="i-close"><use href="#i-x"/></svg>
+    </button>
+  </div>
+
   <button class="to-top" id="to-top" aria-label="Back to top" hidden><svg><use href="#i-up"/></svg></button>
 
   <!-- Project modal -->
@@ -555,6 +571,6 @@
     <a class="btn" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
 
-  <script src="script.js?v=19"></script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>
