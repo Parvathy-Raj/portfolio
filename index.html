@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20">
+  <link rel="stylesheet" href="styles.css?v=21">
   <script>
     document.documentElement.classList.add("js");
     try { var t = localStorage.getItem("theme-v3"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
@@ -125,7 +125,7 @@
         <div class="about-grid">
           <div class="about-text reveal">
             <p class="summary-label">Who I am</p>
-            <p>I'm an AI Engineer at <strong>Kinetics Group</strong> in Dubai. I work directly with the CEO and department heads to find the manual work that slows teams down, then replace it with AI that runs in production. My AI Submittal Control Platform cut submittal prep from <strong>2 hours to 10 minutes</strong>, and the engineering team now uses it for every submittal.</p>
+            <p>I'm an AI Engineer at <strong>Kinetics Group</strong> in Dubai. I work directly with the CEO and department heads to find the manual work that slows teams down, then replace it with AI that runs in production. I built the <strong>KATS Engineering AI Platform</strong>, a multi-agent system that takes an acoustic engineering job from customer inquiry to finished study report, and an AI Submittal Control Platform that cut submittal prep from <strong>1–2 hours to 5–10 minutes</strong> with 100% team adoption.</p>
             <p>Over <strong>3 years</strong> I've built AI agents, RAG over real business documents, n8n automations and plain-English analytics with Python, FastAPI, LangGraph, LlamaIndex and modern LLMs. I test every system against golden datasets and LLM judges before it ships. My NLP research on Malayalam plagiarism detection was published at ICON 2024.</p>
             <ul class="about-tags">
               <li><svg><use href="#i-check"/></svg>Works directly with the CEO</li>
@@ -193,7 +193,7 @@
           </article>
           <article class="skill-cat reveal">
             <h3><svg><use href="#i-search"/></svg>GenAI and RAG</h3>
-            <ul class="pills"><li>Agentic RAG</li><li>Hybrid search</li><li>Embeddings</li><li>Rerankers</li><li>Document intelligence</li><li>OCR</li><li>Prompt engineering</li><li>Context engineering</li><li>RAG evaluation</li></ul>
+            <ul class="pills"><li>Agentic RAG</li><li>Hybrid search</li><li>Embeddings</li><li>Rerankers</li><li>Voyage AI embeddings</li><li>Document intelligence</li><li>Tesseract OCR</li><li>Prompt engineering</li><li>Context engineering</li><li>RAG evaluation</li></ul>
           </article>
           <article class="skill-cat reveal">
             <h3><svg><use href="#i-db"/></svg>Data and cloud</h3>
@@ -225,17 +225,34 @@
               <div><h3>AI Engineer</h3><p class="company">Kinetics Group</p></div>
               <p class="when">May 2026 – Present · Dubai, UAE</p>
             </div>
-            <p class="job-lede">I work with the CEO and the heads of Sales, Engineering, Logistics and Administration to find manual processes worth automating, rank them by measurable outcome, and ship them as production AI platforms.</p>
-            <dl class="mini-metrics job-metrics"><div><dt>Submittal prep time</dt><dd>2 hrs → 10 min</dd></div><div><dt>Engineering hours saved / month</dt><dd>150+</dd></div><div><dt>Inquiry response time</dt><dd>2 days → &lt;1 hr</dd></div></dl>
+            <p class="job-lede">I work directly with the CEO and department heads across Engineering, Sales, Logistics and Administration to find high-impact business problems, then design production AI systems that automate engineering workflows, enterprise operations and decision making.</p>
+            <dl class="mini-metrics job-metrics"><div><dt>Submittal prep time</dt><dd>1–2 hrs → 5–10 min</dd></div><div><dt>Engineering hours saved / month</dt><dd>150+</dd></div><div><dt>Inquiry response time</dt><dd>1–2 days → &lt;1 hr</dd></div></dl>
+
+            <h4 class="job-sub">KATS Engineering AI Platform</h4>
             <ul class="points">
-              <li><strong>AI Submittal Control Platform.</strong> Designed and built the platform the engineering team now uses for every submittal: 100% adoption, 200+ submittals a month.</li>
-              <li><strong>Cross-department automation.</strong> Shipped 5 production n8n workflows (80% adoption) that connect NetSuite APIs, REST services, databases, email and AI agents, removing manual hand-offs between teams.</li>
-              <li><strong>Inquiry routing.</strong> Rebuilt inquiry management around LLM classification and routing, so inquiries reach the right person in under an hour.</li>
-              <li><strong>KATS AI Agent.</strong> Built a LangGraph agent with function calling and MCP integrations for engineering knowledge lookup, operational support and report generation.</li>
-              <li><strong>Agentic RAG over engineering documents.</strong> Turned large document repositories into searchable knowledge bases with LlamaIndex, pgvector, OCR and hybrid search.</li>
-              <li><strong>Reporting and model strategy.</strong> Automated daily, weekly and monthly NetSuite executive reports and BI dashboards. Benchmarked OpenAI, Claude, Gemini and Groq and set model-routing rules per task.</li>
+              <li><strong>End-to-end acoustic engineering.</strong> Architected and built an enterprise AI system that automates the full acoustic engineering workflow: inquiry analysis, engineering calculations, product selection, estimation and acoustic engineering study reports.</li>
+              <li><strong>Multi-agent architecture.</strong> Designed a LangGraph system that coordinates requirement extraction, engineering reasoning, deterministic calculation engines, retrieval, product recommendation, validation and report generation, with human approval checkpoints.</li>
+              <li><strong>Production RAG.</strong> Built citation-aware semantic search across engineering documentation with LlamaIndex, Voyage AI and Llama embeddings, PostgreSQL and pgvector.</li>
+              <li><strong>Document intelligence.</strong> Used Tesseract OCR to extract and index scanned acoustic handbooks, historical projects, engineering reports, calculation sheets, product catalogues, datasheets and technical submissions into an enterprise knowledge base.</li>
+              <li><strong>LLM reasoning plus deterministic maths.</strong> Integrated Claude Sonnet 5.5 for engineering reasoning, structured extraction, technical analysis and report writing, combined with deterministic engineering calculations.</li>
+              <li><strong>Product selection and estimation.</strong> Built AI workflows that recommend compliant acoustic products from inquiry requirements, engineering constraints and manufacturer catalogues.</li>
             </ul>
-            <ul class="pills"><li>Python</li><li>FastAPI</li><li>LangGraph</li><li>LlamaIndex</li><li>MCP</li><li>pgvector</li><li>PostgreSQL</li><li>n8n</li><li>NetSuite</li><li>Docker</li></ul>
+
+            <h4 class="job-sub">AI Submittal Control Platform</h4>
+            <ul class="points">
+              <li><strong>100% team adoption.</strong> Architected and delivered the platform, cutting engineering submittal prep from 1–2 hours to 5–10 minutes and saving 150+ engineering hours a month.</li>
+              <li><strong>End-to-end workflows.</strong> Document preparation, technical compliance validation, template generation, approval management and PDF reports, built with Python, FastAPI, PostgreSQL, Docker and AI services.</li>
+              <li><strong>Standardised submissions.</strong> AI-assisted document analysis, retrieval and structured report generation that standardise engineering submissions and cut manual effort across teams.</li>
+            </ul>
+
+            <h4 class="job-sub">Enterprise AI automation and intelligent workflows</h4>
+            <ul class="points">
+              <li><strong>Cross-functional automation.</strong> Designed and deployed production n8n workflows connecting NetSuite APIs, databases, REST services, email and AI agents.</li>
+              <li><strong>Inquiry classification and routing.</strong> LLM workflows that extract requirements and assign inquiries automatically, cutting engineering response time from 1–2 days to under an hour.</li>
+              <li><strong>Executive reporting.</strong> Pipelines that generate daily, weekly and monthly reports from NetSuite, giving leadership near real-time operational insight.</li>
+              <li><strong>Model strategy.</strong> Evaluated and integrated Claude, OpenAI GPT, Gemini, Groq and Ollama, choosing models per workflow on reasoning quality, latency and cost.</li>
+            </ul>
+            <ul class="pills"><li>Python</li><li>FastAPI</li><li>LangGraph</li><li>LlamaIndex</li><li>Claude Sonnet 5.5</li><li>Voyage AI</li><li>pgvector</li><li>PostgreSQL</li><li>Tesseract OCR</li><li>n8n</li><li>NetSuite</li><li>Docker</li></ul>
           </li>
           <li class="job reveal">
             <div class="job-head">
@@ -571,6 +588,6 @@
     <a class="btn" href="https://github.com/Parvathy-Raj/Prompt-Heist-Game" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg>View code on GitHub</a>
   </template>
 
-  <script src="script.js?v=20"></script>
+  <script src="script.js?v=21"></script>
 </body>
 </html>

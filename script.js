@@ -27,8 +27,13 @@ const SOURCES = {
 const KB = [
   {
     id: "now",
-    keys: ["now", "current", "currently", "today", "kinetics", "submittal", "submittals", "netsuite", "routing", "inquiry", "inquiries", "kats", "doing"],
-    answer: "Parvathy is an AI Engineer at Kinetics Group in Dubai, working with the CEO and the heads of Sales, Engineering, Logistics and Administration [experience]. Recent work:\n- AI Submittal Control Platform: prep time down from 2 hours to 10 minutes, used for 200+ submittals a month\n- 5 production n8n workflows linking NetSuite, databases, email and AI agents\n- LLM inquiry routing that gets each inquiry to the right person in under an hour\n- KATS, a LangGraph agent with function calling and MCP integrations",
+    keys: ["now", "current", "currently", "today", "kinetics", "submittal", "submittals", "netsuite", "routing", "inquiry", "inquiries", "doing", "reporting"],
+    answer: "Parvathy is an AI Engineer at Kinetics Group in Dubai, working directly with the CEO and department heads across Engineering, Sales, Logistics and Administration [experience]. Main work:\n- KATS Engineering AI Platform: a LangGraph multi-agent system that takes acoustic engineering jobs from inquiry to finished study report\n- AI Submittal Control Platform: prep time down from 1–2 hours to 5–10 minutes, 150+ engineering hours saved a month, 100% team adoption\n- LLM inquiry classification and routing: response time down from 1–2 days to under an hour\n- n8n workflows across NetSuite, databases, email and AI agents, plus automated executive reports",
+  },
+  {
+    id: "kats",
+    keys: ["kats", "acoustic", "acoustics", "engineering platform", "calculation", "calculations", "estimation", "estimate", "product selection", "ocr", "tesseract", "voyage", "sonnet", "handbooks", "catalogues", "catalogs", "report generation"],
+    answer: "KATS is the Engineering AI Platform Parvathy architected at Kinetics Group. It automates the whole acoustic engineering workflow, from customer inquiry to the acoustic engineering study report [experience]:\n- A LangGraph multi-agent system for requirement extraction, engineering reasoning, calculation, retrieval, product recommendation, validation and reporting, with human approval checkpoints\n- Deterministic calculation engines combined with Claude Sonnet 5.5 for reasoning, extraction and report writing\n- Citation-aware RAG with LlamaIndex, Voyage AI and Llama embeddings, PostgreSQL and pgvector\n- Tesseract OCR to index scanned handbooks, past projects, calculation sheets, catalogues and datasheets\n- Product selection and estimation that recommend compliant acoustic products",
   },
   {
     id: "experience",
@@ -43,7 +48,7 @@ const KB = [
   {
     id: "hardest",
     keys: ["hardest", "difficult", "challenging", "challenge", "complex", "proud", "impressive", "technically"],
-    answer: "The Hallucination Firewall is the most technically involved [hallucination-firewall]. It splits an agent's draft answer into single-fact claims and checks each one against the tool outputs the agent actually received: exact checks first, then an NLI model, and an LLM judge only when needed. Wrong claims are blocked or rewritten with citations.\nIn production, the biggest is the AI Submittal Control Platform at Kinetics Group, which the engineering team uses for every submittal [experience].",
+    answer: "The Hallucination Firewall is the most technically involved [hallucination-firewall]. It splits an agent's draft answer into single-fact claims and checks each one against the tool outputs the agent actually received: exact checks first, then an NLI model, and an LLM judge only when needed. Wrong claims are blocked or rewritten with citations.\nIn production, the biggest is the KATS Engineering AI Platform at Kinetics Group: a multi-agent system that mixes deterministic engineering calculations with LLM reasoning and keeps a human approval step before reports go out [experience].",
   },
   {
     id: "backend",
@@ -57,8 +62,8 @@ const KB = [
   },
   {
     id: "mcp",
-    keys: ["mcp", "model context protocol", "claude desktop", "cursor", "tool", "tools", "function calling"],
-    answer: "Yes, two of them. Docs Brain gives Claude Desktop, Cursor and other MCP clients cited search over the FastAPI docs, with typed tools and structured output [docs-brain]. The Hallucination Firewall verifies an agent's answer against its tool outputs before it goes out [hallucination-firewall].\nAt Kinetics Group, the KATS agent also uses MCP integrations [experience].",
+    keys: ["mcp", "server", "servers", "model context protocol", "claude desktop", "cursor", "tool", "tools", "function calling"],
+    answer: "Yes, two of them. Docs Brain gives Claude Desktop, Cursor and other MCP clients cited search over the FastAPI docs, with typed tools and structured output [docs-brain]. The Hallucination Firewall verifies an agent's answer against its tool outputs before it goes out [hallucination-firewall].",
   },
   {
     id: "eval",
@@ -73,7 +78,7 @@ const KB = [
   {
     id: "agents",
     keys: ["agent", "agents", "agentic", "multi-agent", "langgraph", "langchain", "llamaindex", "workflow", "workflows", "automation", "automate", "n8n", "memory", "human-in-the-loop"],
-    answer: "Agentic AI is Parvathy's main focus: multi-agent systems, tool calling, agent memory and human-in-the-loop design with LangGraph and LangChain [skills]. Examples:\n- KATS, a LangGraph agent for engineering knowledge lookup and report generation at Kinetics Group [experience]\n- 5 production n8n workflows that remove manual hand-offs between teams\n- AI SQL agents at Renie that answer plain-English questions over PostgreSQL",
+    answer: "Agentic AI is Parvathy's main focus: multi-agent systems, tool calling, agent memory and human-in-the-loop design with LangGraph and LangChain [skills]. Examples:\n- KATS Engineering AI Platform at Kinetics Group: LangGraph agents for extraction, reasoning, calculation, retrieval and validation, with human approval checkpoints [experience]\n- n8n workflows that connect NetSuite, email and AI agents across departments\n- AI SQL agents at Renie that answer plain-English questions over PostgreSQL",
   },
   {
     id: "stack",
@@ -111,6 +116,7 @@ const KB = [
 const SUGGESTIONS = [
   ["What projects has Parvathy built?", "projects"],
   ["What does Parvathy work on now?", "now"],
+  ["What is the KATS Engineering AI Platform?", "kats"],
   ["Show me Parvathy's backend experience.", "backend"],
   ["What was the most technically difficult project?", "hardest"],
   ["Has Parvathy built an MCP server?", "mcp"],

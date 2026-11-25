@@ -305,6 +305,8 @@ svg { width: 1em; height: 1em; flex: none; }
 .job-metrics { margin-bottom: 20px; }
 .job-metrics dd { font-size: 19px; }
 .points strong { font-weight: 700; color: var(--text); }
+.job-sub { display: flex; align-items: center; gap: 10px; margin: 22px 0 12px; font-family: var(--mono); font-size: 12.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--a1); }
+.job-sub::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .points { display: grid; gap: 8px; margin-bottom: 18px; }
 .points li { position: relative; padding-left: 22px; font-size: 15.5px; line-height: 1.65; }
 .points li::before { content: "▸"; position: absolute; left: 2px; top: 0; color: var(--a1); }
